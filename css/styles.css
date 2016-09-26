@@ -1,0 +1,24 @@
+.row{box-sizing:border-box;}
+.side-quarter ul, .side-quarter li, .middle-groups ul, .middle-groups li, .bottom-groups ul, .bottom-groups li{list-style:none;margin:0px;padding:0px;}
+
+
+.side-groups li{list-style:none;margin:0px;padding:0px;}
+.middle-groups{width:100%;display:inline-block;box-sizing:border-box;vertical-align:top;}
+.middle-groups li{border:1px solid #CCC;margin:4px 4px;padding:px;border-radius:5px;display:block;}
+.middle-groups span{background:#EBEBEB;display:inline-block;min-width:20px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;border-right:1px solid #CCC;padding:5px;}
+.middle-groups div{display:inline-block;}
+.bottom-groups{width:100%;}
+.bottom-groups li{display:inline-block;width:25%;padding:10px 5px;}
+.sidegroup1,.sidegroup2,.sidegroup3,.sidegroup4{padding:5px 0px;box-sizing:border-box;float:left;}
+.side-quarter{width:25%;display:inline-block;box-sizing:border-box;vertical-align:top;float:left;}
+.side-threequarter{width:75%;display:inline-block;box-sizing:border-box;vertical-align:top;float:left;}
+
+.card{width:18px;height:24px;border:1px solid #ccc;border-radius:3px;display:inline-block;background:#FFF;}
+.card:first-child{margin-left:0px;}
+.inactive{border:1px solid #EBEBEB;}
+.ui-content{padding:7px !important;}
+.C, .S{color:black;}
+.D, .H{color:red;}
+.message-alert{color:red;}
+.message-normal{color:red;}
+/*320 4cards 13 320/17 = 18.82  * 3 margins 5px each 305/17 = 17.94*/ 

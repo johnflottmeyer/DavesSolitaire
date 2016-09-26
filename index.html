@@ -11,23 +11,61 @@
     <link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet">
     <link href="css/jquery.mobile.custom.theme.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-
-
   </head>
 
   <body>
-
    <div class="container">
-	   <div class="">
-		   
+	   <div data-role="page">
+		   <div data-role="header"><h1>Header</h1></div>
+	<div role="main" class="ui-content">
+		<div class="message"></div>
+		<div class="row">
+		
+	   <div class="middle-groups">
+		   <ul>
+			   <li class="suit1"><span>&nbsp;</span><div></div></li>
+			   <li class="suit2"><span>&nbsp;</span><div></div></li>
+			   <li class="suit3"><span>&nbsp;</span><div></div></li>
+			   <li class="suit4"><span>&nbsp;</span><div></div></li>
+		   </ul>
 	   </div>
-	   <div class="">
+		</div>
+		<div class="row">
+			<div class="bottom-groups">
+			<ul>
+				<li class="sidegroup1">
+				group1
+				</li>
+				<li class="sidegroup2">
+				group2
+				</li>
+				<li class="sidegroup3">
+				group3
+				</li>
+				<li class="sidegroup4">
+				group4
+				</li>
+			</ul>
 	   </div>
-	   <div data-role="controlgroup" data-type="horizontal">
+		</div>
+		<div class="row">
+	   <div class="side-quarter">
+		   <a href="#" class="ui-btn ui-mini">flip</a>
+	   </div>
+	   <div class="side-threequarter">dealt cards
+	   </div>
+		</div>
+	</div>
+	<div data-role="footer">
+		 <div data-role="navbar ui-state-persist">
 		   <a href="#" class="deal ui-btn">Deal</a>
 		   <a href="#" class="reset ui-btn ui-state-disabled">Reset</a>
 		   <a href="#" class="save ui-btn">Save</a>
 		   <a href="#" class="load ui-btn">Load</a>
+	   </div>
+	</div>
+	   
+	  
 	   </div>
     </div> <!-- /container -->
 
