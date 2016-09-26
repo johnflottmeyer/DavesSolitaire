@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -702,3 +703,9 @@ App is much more friendly with the amount of shuffling that goes on.</p>
   </body>
 </html>
 
+=======
+# DavesSolitaire
+Version 2.0
+my dads favorite solitaire game - building it in javascript to bring it to iOS.
+App is much more friendly with the amount of shuffling that goes on.
+>>>>>>> ed6de3e1cca4b34896a54e5c7ad02a31ef5c05ae
