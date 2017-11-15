@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.DadsSolitaire"
+        versionCode = "2"
+        version     = "2.0" >
+	
+    <name>Dad's Saturday Solitaire</name>
+    <description>
+	    The solitaire game my dad would play on Saturday mornings.
+    </description>
+
+    <author href="https://build.phonegap.com" email="j_flottmeyer@voilamediagroup.com">
+        John Flottmeyer
+    </author>
+    
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+    
+    <!-- third party plugins -->
+	<gap:plugin name="cordova-plugin-statusbar" source="npm" />
+	 
+    <!-- universal preferences -->
+    <preference name="phonegap-version" value="cli-6.5.0" /> 
+    <preference name="orientation" value="portrait" />        
+    <preference name="fullscreen" value="false" />
+	
+	<!-- ios preferences --> 
+    <preference name="target-device" value="universal" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    
+   
+    <!-- ios icons 7+ -->
+    
+    <!-- iPhone 6 / 6+ -->
+	<icon src="images/icons/icon-60@3x.png" platform="ios" width="180" height="180" />
+
+    <!-- iPhone / iPod Touch  -->
+	<icon src="images/icons/icon-60.png" platform="ios" width="60" height="60" />
+	<icon src="images/icons/icon-60@2x.png" platform="ios" width="120" height="120" />
+	
+	<!-- iPad -->
+	<icon src="images/icons/icon-76.png" platform="ios" width="76" height="76" />
+	<icon src="images/icons/icon-76@2x.png" platform="ios" width="152" height="152" />
+	<icon src="images/icons/icon-83.5@2x.png" platform="ios" width="167" height="167" />
+	
+	<!-- Settings Icon -->
+	<icon src="images/icons/icon-small.png" platform="ios" width="29" height="29" />
+	<icon src="images/icons/icon-small@2x.png" platform="ios" width="58" height="58" />
+	<icon src="images/icons/icon-small@3x.png" platform="ios" width="87" height="87" />
+	
+	<!-- Spotlight Icon -->
+	<icon src="images/icons/icon-40.png" platform="ios" width="40" height="40" />
+	<icon src="images/icons/icon-40@2x.png" platform="ios" width="80" height="80" />
+	<icon src="images/icons/icon-40@3x.png" platform="ios" width="120" height="120" />
+	
+	<!--ios 6.1 -->
+	<!-- iPhone / iPod Touch -->
+	<icon src="images/icons/icon.png" platform="ios" width="57" height="57" />
+	<icon src="images/icons/icon@2x.png" platform="ios" width="114" height="114" />
+	
+	<!-- iPad -->
+	<icon src="images/icons/icon-72.png" platform="ios" width="72" height="72" />
+	<icon src="images/icons/icon-72@2x.png" platform="ios" width="144" height="144" />
+	
+	<!-- iPad Spotlight and Settings Icon -->
+	<icon src="images/icons/icon-small-50.png" platform="ios" width="50" height="50" />
+	<icon src="images/icons/icon-small-50@2x.png" platform="ios" width="100" height="100" />
+	
+	<!--DROID ICONS-->
+	<icon src="images/icons/ldpi.png" platform="android" qualifier="ldpi" />
+	<icon src="images/icons/mdpi.png" platform="android" qualifier="mdpi" />
+	<icon src="images/icons/hdpi.png" platform="android" qualifier="hdpi" />
+	<icon src="images/icons/xhdpi.png" platform="android" qualifier="xhdpi" />
+	<icon src="images/icons/xxhdpi.png" platform="android" qualifier="xxhdpi" />
+	<icon src="images/icons/fr-xxhdpi.png" platform="android" qualifier="fr-xxhdpi" />
+
+    <!-- iPhone and iPod touch -->
+	<splash src="images/splash/Default.png" platform="ios" width="320" height="480" />
+	<splash src="images/splash/Default@2x.png" platform="ios" width="640" height="960" />
+	
+	<!-- iPhone 5 / iPod Touch (5th Generation) -->
+    <splash src="images/splash/Default-568h@2x.png" platform="ios" width="640" height="1136" />
+	
+	<!-- iPhone 6 -->
+	<splash src="images/splash/Default-667h@2x.png" platform="ios" width="750" height="1334" />
+	<splash src="images/splash/Default-Portrait-736h@3x.png" platform="ios" width="1242" height="2208" />
+	<splash src="images/splash/Default-Landscape-736h@3x.png" platform="ios" width="2208" height="1242" />
+	
+	<!-- iPad -->
+	<splash src="images/splash/Default-Portrait.png" platform="ios" width="768" height="1024" />
+	<splash src="images/splash/Default-Landscape.png" platform="ios" width="1024" height="768" />
+	
+	<!-- Retina iPad -->
+	<splash src="images/splash/Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
+	<splash src="images/splash/Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
+	
+	<!--Droid Splash-->
+	<splash src="images/splash/port-ldpi.png" platform="android" qualifier="port-ldpi" />
+	<splash src="images/splash/land-ldpi.png" platform="android" qualifier="land-ldpi" />
+	<splash src="images/splash/port-mdpi.png" platform="android" qualifier="port-mdpi" />
+	<splash src="images/splash/land-mdpi.png" platform="android" qualifier="land-mdpi" />
+	<splash src="images/splash/port-hdpi.png" platform="android" qualifier="port-hdpi" />
+	<splash src="images/splash/land-hdpi.png" platform="android" qualifier="land-hdpi" />
+	<splash src="images/splash/port-xhdpi.png" platform="android" qualifier="port-xhdpi" />
+	<splash src="images/splash/land-xhdpi.png" platform="android" qualifier="land-xhdpi" />
+	<splash src="images/splash/port-xxhdpi.png" platform="android" qualifier="port-xxhdpi" />
+	<splash src="images/splash/land-xxhdpi.png" platform="android" qualifier="land-xxhdpi" />
+	<splash src="images/splash/port-xxxhdpi.png" platform="android" qualifier="port-xxxhdpi" />
+	<splash src="images/splash/land-xxxhdpi.png" platform="android" qualifier="land-xxxhdpi" />
+	
+	<gap:config-file platform="ios" parent="ITSAppUsesNonExemptEncryption" mode="add">
+		<false/>
+	</gap:config-file>
+</widget>
