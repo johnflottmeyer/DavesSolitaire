@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html manifest="cache.manifest">
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,55 +9,50 @@
 
     <link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet">
     <link href="css/jquery.mobile.custom.theme.min.css" rel="stylesheet">
+    <link href="css/whhg.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
 
   <body>
    <div class="container">
 	   <div data-role="page">
-		   <div data-role="header"><h1>Header</h1></div>
+		   <div data-role="header"><h1>Solitaire Game</h1>
+		   <a class="button-ui ui-state-disabled">Save</a><a class="button-ui ui-state-disabled">Undo</a></div>
 	<div role="main" class="ui-content">
 		<div class="message"></div>
 		<div class="row">
 		
 	   <div class="middle-groups">
 		   <ul>
-			   <li class="suit1"><span>&nbsp;</span><div></div></li>
-			   <li class="suit2"><span>&nbsp;</span><div></div></li>
-			   <li class="suit3"><span>&nbsp;</span><div></div></li>
-			   <li class="suit4"><span>&nbsp;</span><div></div></li>
+			   <li class="suit1"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+			   <li class="suit2"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+			   <li class="suit3"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+			   <li class="suit4"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
 		   </ul>
 	   </div>
 		</div>
 		<div class="row">
 			<div class="bottom-groups">
 			<ul>
-				<li class="sidegroup1">
-				group1
-				</li>
-				<li class="sidegroup2">
-				group2
-				</li>
-				<li class="sidegroup3">
-				group3
-				</li>
-				<li class="sidegroup4">
-				group4
-				</li>
+				<li class="bottomgroup1">group1</li>
+				<li class="bottomgroup2">group2</li>
+				<li class="bottomgroup3">group3</li>
+				<li class="bottomgroup4">group4</li>
 			</ul>
 	   </div>
 		</div>
 		<div class="row">
 	   <div class="side-quarter">
-		   <a href="#" class="ui-btn ui-mini">flip</a>
+		   <a href="#" class="ui-btn ui-mini flipem">Deal</a>
 	   </div>
-	   <div class="side-threequarter">dealt cards
-	   </div>
+	   <div class="side-threequarter flip-deck"></div>
 		</div>
+		
 	</div>
+	[banner ad]
 	<div data-role="footer">
 		 <div data-role="navbar ui-state-persist">
-		   <a href="#" class="deal ui-btn">Deal</a>
+		   <a href="#" class="deal ui-btn">Start</a>
 		   <a href="#" class="reset ui-btn ui-state-disabled">Reset</a>
 		   <a href="#" class="save ui-btn">Save</a>
 		   <a href="#" class="load ui-btn">Load</a>
@@ -72,8 +66,8 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="/jquery-migrate-3.0.0.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/application.js"></script>
   
