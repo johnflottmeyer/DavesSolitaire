@@ -23,7 +23,7 @@ function onDeviceReady() {
 
     // Set AdMobAds options:
     admob.setOptions({
-        publisherId:          "ca-app-pub-2038262597739639",  // Required
+        publisherId:          "ca-app-pub-2038262597739639/6358184208",  // Required pub-2038262597739639
         interstitialAdId:     "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII",  // Optional
         tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
         tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
