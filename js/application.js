@@ -30,16 +30,19 @@ function onDeviceReady() {
         tappxShare:           0.5                                        // Optional
     });
     admob.createBannerView();
+     $(".loadpop").click(); 
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-$(document).on("pagecreate","#gameboard", function(){ 
-    //$("#btnpopup").on("click", function(){
-        $("#positionSelector").popup("open"); 
-        
-        //setTimeout(function(){  $("#p").popup("close"); }, 5000);
-    //});
+
+$(document).on('pageshow', '#gameboard' ,function () {
+ //if (getValue() == null) {
+  //setTimeout(function () {
+   //$.mobile.changePage('#dialog');
+   $(".loadpop").click(); 
+  //}, 100); // delay above zero
+ //}
 });
 /*INITIALIZED VARIABLES*/
 /*line start variables*/
