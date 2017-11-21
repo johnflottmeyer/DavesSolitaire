@@ -29,6 +29,7 @@ function onDeviceReady() {
         tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
         tappxShare:           0.5                                        // Optional
     });
+    admob.createBannerView();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -36,7 +37,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 $(document).on("pagecreate","#gameboard", function(){ 
     //$("#btnpopup").on("click", function(){
         $("#positionSelector").popup("open"); 
-        admob.createBannerView();
+        
         //setTimeout(function(){  $("#p").popup("close"); }, 5000);
     //});
 });
