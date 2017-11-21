@@ -17,6 +17,27 @@ Check to see if the start card exists in the bottom decks and if it does make su
 
 ==============================================
 *********************************************/
+$(document).on("pagecreate","#gameboard", function(){ 
+    //$("#btnpopup").on("click", function(){
+        $("#positionSelector").popup("open"); 
+        //setTimeout(function(){  $("#p").popup("close"); }, 5000);
+    //});
+});
+function onDeviceReady() {
+    document.removeEventListener('deviceready', onDeviceReady, false);
+
+    // Set AdMobAds options:
+    admob.setOptions({
+        publisherId:          "ca-app-pub-2038262597739639",  // Required
+        interstitialAdId:     "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII",  // Optional
+        tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
+        tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
+        tappxShare:           0.5                                        // Optional
+    });
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
 
 /*INITIALIZED VARIABLES*/
 /*line start variables*/
@@ -125,6 +146,7 @@ function searchArray(searchvalue, key, v) {
 }
 /*******************************************/
 function resetVariables(){
+	
 	//variables
 	suitOne = "";
 	suitTwo = "";
@@ -204,6 +226,7 @@ function createDeck(){
 	}
 	flipDeck = myObDeck;
   	displayBottomDeck();
+  	$("#positionSelector").popup("close");
 }
 function updateDeck(){
 	displayBottomDeck();
@@ -378,12 +401,18 @@ $(".deal").click(function(){
 	/*Interface changes*/
 	$(".deal").addClass('ui-state-disabled');
 	$(".reset").removeClass('ui-state-disabled');
+	admob.createBannerView();
 });
 $(".reset").click(function(){
 	resetVariables();
 	/*Interface changes*/
 	$(".deal").removeClass('ui-state-disabled');
 	$(".reset").addClass('ui-state-disabled');
+	//close panel
+	$("#mypanel").panel("close");
+	//load start popup
+	$("#positionSelector").popup("open");
+	
 });
 $(".save").click(function(){
 	console.log("Save");
