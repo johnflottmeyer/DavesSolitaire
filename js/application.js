@@ -17,12 +17,7 @@ Check to see if the start card exists in the bottom decks and if it does make su
 
 ==============================================
 *********************************************/
-$(document).on("pagecreate","#gameboard", function(){ 
-    //$("#btnpopup").on("click", function(){
-        $("#positionSelector").popup("open"); 
-        //setTimeout(function(){  $("#p").popup("close"); }, 5000);
-    //});
-});
+
 function onDeviceReady() {
     document.removeEventListener('deviceready', onDeviceReady, false);
 
@@ -38,7 +33,13 @@ function onDeviceReady() {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-
+$(document).on("pagecreate","#gameboard", function(){ 
+    //$("#btnpopup").on("click", function(){
+        $("#positionSelector").popup("open"); 
+        admob.createBannerView();
+        //setTimeout(function(){  $("#p").popup("close"); }, 5000);
+    //});
+});
 /*INITIALIZED VARIABLES*/
 /*line start variables*/
 var startCard = "";
@@ -401,8 +402,9 @@ $(".deal").click(function(){
 	/*Interface changes*/
 	$(".deal").addClass('ui-state-disabled');
 	$(".reset").removeClass('ui-state-disabled');
-	admob.createBannerView();
+	
 });
+
 $(".reset").click(function(){
 	resetVariables();
 	/*Interface changes*/
