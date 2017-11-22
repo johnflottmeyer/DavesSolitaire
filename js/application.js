@@ -29,18 +29,26 @@ function onDeviceReady() {
         tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
         tappxShare:           0.5                                        // Optional
     });
-    admob.createBannerView();
+    
      //$(".loadpop").click(); 
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
-
+$(document).on("pagecreate","#gameboard", function(){ 
+    //$("#btnpopup").on("click", function(){
+       
+        //loadpop
+        //setTimeout(function(){  $("#p").popup("close"); }, 5000);
+    //});
+    //$(".loadpop").click(); 
+    admob.createBannerView();
+});
 $(document).on('pageshow', '#gameboard' ,function () {
  //if (getValue() == null) {
   //setTimeout(function () {
    //$.mobile.changePage('#dialog');
-   //$(".loadpop").click(); 
+   $("#positionSelector").click(); 
   //}, 100); // delay above zero
  //}
 });
