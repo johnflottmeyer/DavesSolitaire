@@ -24,8 +24,7 @@
 		   <a href="#" class="load ui-btn">Load</a>
     <!-- panel content goes here -->
 </div><!-- /panel -->
-
-	<div data-role="popup" id="positionSelector" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+<div data-role="popup" id="positionSelector" class="ui-content" data-theme="a" data-overlay-theme="a" data-position-to="window">
 <p>Click Start Game below to deal out the cards of the deck. <br><a href="#" class="deal ui-btn" >Start Game</a></p>
 </div>
 		   <div data-role="header"><h1>Solitaire Game</h1>
@@ -55,12 +54,13 @@
 			</div>
 		</div>
 		<div class="row flipdeck">
+			
 	   		<div class="side-threequarter flip-deck"></div>
 	   		<div class="side-quarter">
 				<a href="#" class="ui-btn ui-mini flipem">Deal</a>
 	   		</div>
 		</div>
-		<a href="#positionSelector" data-rel="popup" data-position-to="window" data-transition="pop" class="loadpop"></a>
+		
 	</div>	  
 	   </div>
     </div> <!-- /container -->
