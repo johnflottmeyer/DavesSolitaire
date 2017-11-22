@@ -40,7 +40,7 @@ $(document).on('pageshow', '#gameboard' ,function () {
  //if (getValue() == null) {
   //setTimeout(function () {
    //$.mobile.changePage('#dialog');
-   $(".loadpop").click(); 
+   //$(".loadpop").click(); 
   //}, 100); // delay above zero
  //}
 });
