@@ -29,7 +29,7 @@ function onDeviceReady() {
         tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
         tappxShare:           0.5                                        // Optional
     });
-    
+    admob.createBannerView();
      //$(".loadpop").click(); 
 }
 
@@ -42,7 +42,7 @@ $(document).on("pagecreate","#gameboard", function(){
         //setTimeout(function(){  $("#p").popup("close"); }, 5000);
     //});
     //$(".loadpop").click(); 
-    admob.createBannerView();
+    
 });
 $(document).on('pageshow', '#gameboard' ,function () {
  //if (getValue() == null) {
