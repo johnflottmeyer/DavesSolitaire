@@ -30,7 +30,7 @@ function onDeviceReady() {
         tappxShare:           0.5                                        // Optional
     });
     admob.createBannerView();
-     $(".loadpop").click(); 
+     //$(".loadpop").click(); 
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
