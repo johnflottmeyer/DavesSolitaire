@@ -17,138 +17,147 @@ Check to see if the start card exists in the bottom decks and if it does make su
 
 ==============================================
 *********************************************/
+
+/***********************************************
+========== ADVERTISING ============
+*********************************************/
  var isAppForeground = true;
     
-    function initAds() {
-      if (admob) {
-        var adPublisherIds = {
-          ios : {
-            banner : "ca-app-pub-8087701798858995/6405768747",
-            interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
-          },
-          android : {
-            banner : "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB",
-            interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
-          }
-        };
-    	  
-        var admobid = (/(android)/i.test(navigator.userAgent)) ? adPublisherIds.android : adPublisherIds.ios;
-            
-        admob.setOptions({
-          publisherId:      admobid.banner,
-          interstitialAdId: admobid.interstitial,
-          tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
-          tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
-          tappxShare:       0.5,
-          
-        });
- 
-        registerAdEvents();
+function initAds() {
+  if (admob) {
+    var adPublisherIds = {
+      ios : {
+        banner : "ca-app-pub-8087701798858995/6405768747",
+        interstitial : "ca-app-pub-8087701798858995/9554019722"
+      },
+      android : {
+        banner : "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB",
+        interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
+      }
+    };
+	  
+    var admobid = (/(android)/i.test(navigator.userAgent)) ? adPublisherIds.android : adPublisherIds.ios;
         
-      } else {
-        alert('AdMobAds plugin not ready');
-      }
-    }
-    
-    function onAdLoaded(e) {
-      if (isAppForeground) {
-        if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-          console.log("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
-        } else if (e.adType === admob.AD_TYPE_BANNER) {
-          console.log("New banner received");
-        }
-      }
-    }
-    
-    function onPause() {
-      if (isAppForeground) {
-        admob.destroyBannerView();
-        isAppForeground = false;
-      }
-    }
-    
-    function onResume() {
-      if (!isAppForeground) {
-        setTimeout(admob.createBannerView, 1);
-        setTimeout(admob.requestInterstitialAd, 1);
-        isAppForeground = true;
-      }
-    }
-    
-    // optional, in case respond to events 
-    function registerAdEvents() {
-      document.addEventListener(admob.events.onAdLoaded, onAdLoaded);
-      document.addEventListener(admob.events.onAdFailedToLoad, function (e) {});
-      document.addEventListener(admob.events.onAdOpened, function (e) {});
-      document.addEventListener(admob.events.onAdClosed, function (e) {});
-      document.addEventListener(admob.events.onAdLeftApplication, function (e) {});
-      document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
+    admob.setOptions({
+      publisherId:      admobid.banner,
+      interstitialAdId: admobid.interstitial,
+      tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
+      tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
+      tappxShare:       0.5,
       
-      document.addEventListener("pause", onPause, false);
-      document.addEventListener("resume", onResume, false);
-    }
-        
-    function onDeviceReady() {
-      document.removeEventListener('deviceready', onDeviceReady, false);
-      initAds();
- 
-      // display a banner at startup 
-      admob.createBannerView();
-        
-      // request an interstitial 
-      admob.requestInterstitialAd();
-    }
-    
-    document.addEventListener("deviceready", onDeviceReady, false);
-    
-    
+    });
 
+    registerAdEvents();
+    
+  } else {
+    alert('AdMobAds plugin not ready');
+  }
+}
 
+function onAdLoaded(e) {
+  if (isAppForeground) {
+    if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
+      console.log("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
+    } else if (e.adType === admob.AD_TYPE_BANNER) {
+      console.log("New banner received");
+    }
+  }
+}
+
+function onPause() {
+  if (isAppForeground) {
+    admob.destroyBannerView();
+    isAppForeground = false;
+  }
+}
+
+function onResume() {
+  if (!isAppForeground) {
+    setTimeout(admob.createBannerView, 1);
+    setTimeout(admob.requestInterstitialAd, 1);
+    isAppForeground = true;
+  }
+}
+
+// optional, in case respond to events 
+function registerAdEvents() {
+  document.addEventListener(admob.events.onAdLoaded, onAdLoaded);
+  document.addEventListener(admob.events.onAdFailedToLoad, function (e) {});
+  document.addEventListener(admob.events.onAdOpened, function (e) {});
+  document.addEventListener(admob.events.onAdClosed, function (e) {});
+  document.addEventListener(admob.events.onAdLeftApplication, function (e) {});
+  document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) {});
+  
+  document.addEventListener("pause", onPause, false);
+  document.addEventListener("resume", onResume, false);
+}
+    
+function onDeviceReady() {
+  document.removeEventListener('deviceready', onDeviceReady, false);
+  initAds();
+
+  // display a banner at startup 
+  admob.createBannerView();
+    
+  // request an interstitial 
+  admob.requestInterstitialAd();
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+    
+    
+/*********************************************
+================ APP START 
+*********************************************/
 $(document).on("pagecreate","#gameboard", function(){ 
-    //$("#btnpopup").on("click", function(){
-       
-        //loadpop
-        //setTimeout(function(){  $("#p").popup("close"); }, 5000);
-    //});
-    //$(".loadpop").click(); 
     $(".loadpop").click(); 
 });
 $(document).on('pageshow', '#gameboard' ,function () {
- //if (getValue() == null) {
-  //setTimeout(function () {
-   //$.mobile.changePage('#dialog');
    $("#positionSelector").click(); 
-  //}, 100); // delay above zero
- //}
 });
-/*INITIALIZED VARIABLES*/
+
+/*********************************************
+================ INITIALIZED VARIABLES
+*********************************************/
+
 /*line start variables*/
 var startCard = "";
-//var secondCard = "";//maybe I don't need these three?
-//var thirdCard = "";
-//var fourthCard = "";
+
 /*found cards*/
 var line0 = [];
 var line1 = [];
 var line2 = [];
 var line3 = [];
+
 /*pick from here*/
 var bottomdeck1 = [];
 var bottomdeck2 = [];
 var bottomdeck3 = [];
 var bottomdeck4 = [];
 var flipDeck = []; //bottom deal deck
+
 /*identifier suits*/
 var	suitOne = "";
 var	suitTwo = "";
 var	suitThree = "";
 var	suitFour = "";
 var myObDeck = new Array();//create the deck
+var flipAmount = 3;
 
 /*HELPER FUNCTIONS*/
-removeByIndex = function(arr,index) {//remove an item from teh array
+removeByIndex = function(arr,index,title) {//remove an item from teh array
 	arr.splice(index, 1);
-	//console.log(index + " removed from " + arr);
+	console.log(title);
+	console.log(index + " removed from " + arr);
+	if(title == "flipDeck"){
+		if(flipAmount != 0){
+			flipAmount --;
+			console.log(flipAmount);
+		}else{
+			flipAmount = 3;//reset the amount - maybe have some dealing animation here - or in the flipem function
+		}
+	}
+	
 };
 function getSuitIcon(x){//add in the icon css to bring in the card icons
 	switch(x){
@@ -168,14 +177,7 @@ function getSuitIcon(x){//add in the icon css to bring in the card icons
 			break;
 	}
 }
-/*function myIndexOf(o,arr) {    
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i].x == o.x && arr[i].y == o.y) {
-            return i;
-        }
-    }
-    return -1;
-}*/
+
 /*Trying to find a proper search*/
 function myIndexOf(a, obj) {
 	console.log(a + " - " + obj);
@@ -208,13 +210,13 @@ function search(array, key, prop){
         }
     }
 }
-function getByValue(arr, value) {
+/*function getByValue(arr, value) {
 
   for (var i=0, iLen=arr.length; i<iLen; i++) {
 
     if (arr[i].name == value) return arr[i];
   }
-}
+}*/
 /*******************************************
 	How can I move this out to a function*/
 	
@@ -235,9 +237,7 @@ function resetVariables(){
 	suitThree = "";
 	suitFour = "";
 	startCard = "";
-	//secondCard = "";
-	//thirdCard = "";
-	//fourthCard = "";
+	flipAmount = 3;
 	bottomdeck1 = [];
 	bottomdeck2 = [];
 	bottomdeck3 = [];
@@ -294,6 +294,7 @@ function createDeck(){
   	line0.push(startCard);
   	suitOne = startCard.suit;
   	removeByIndex(myObDeck,0);//now remove the first card from the array
+  	
   	//DISPLAY FIRST CARD IN THE LINE UP
   	var getStartIcon = getSuitIcon(startCard.suit);
   	$(".suit1 span").html("<div class='"+startCard.suit+"'><i class="+getStartIcon+"></i>"+startCard.name+"</div>");
@@ -315,6 +316,7 @@ function updateDeck(){
 	displayTopDeck();
 }
 function displayBottomDeck(){
+	//check to see what number we are on. 
 	for(z=0;z<4;z++){
 		var inserthtml = "";
 		var inactive = "";
@@ -333,7 +335,8 @@ function displayBottomDeck(){
 	for(e=0;e<window.flipDeck.length;e++){
 		var getStartIcon = getSuitIcon(flipDeck[e].suit);
 		if(e != flipDeck.length-1){ cardactive = "inactive"; } else{ cardactive = "";}
-		if(e >= window.flipDeck.length-3){
+		//if(e >= window.flipDeck.length-3){
+		if(e >= window.flipDeck.length-flipAmount){
 			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
 		}else{
 			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" hiddencard' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
@@ -363,6 +366,7 @@ function flipThemCards(arr){
 	var arrStart = 0;
 	for(f=0;f<window.flipDeck.length;f++){
 		if(f >= window.flipDeck.length - 3){
+		//if(f >= window.flipDeck.length - flipAmount){
 			fromIndex = f; //position from
 			toIndex = arrStart; //position to
 		    flipDeck.splice(toIndex, 0, flipDeck.splice(fromIndex, 1)[0]);
@@ -379,7 +383,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	var place = order; //what is its order in the small deck that it is in so that we can remove it.
 	if(suitOne === suit){//lets compare it to the start cards suit to see if it can go in the row.
 		line0.push({"value":position,"name":value,"suit":suit});
-		removeByIndex(window[origin],place);//remove from current location
+		removeByIndex(window[origin],place,origin);//remove from current location
 		updateDeck();//refresh the deck
 	}else if(value === startCard.name){ //let's see if it is a start card so that it can open up a new deck
 		if(line1.length === 0){//row 2 start card
@@ -387,28 +391,28 @@ function checkCanPlace(value,suit,title,deck,order){
 			suitTwo = suit;
 			getStartIcon = getSuitIcon(suit);
 			$(".suit2 span").html("<div class='"+suit+"'><i class="+getStartIcon+"></i>"+value+"</div>");
-			removeByIndex(window[origin],place);
+			removeByIndex(window[origin],place,origin);
 			displayBottomDeck();
 		}else if(line2.length === 0){//row 3 start card
 			line2.push({"value":position,"name":value,"suit":suit});
 			suitThree = suit;
 			getStartIcon = getSuitIcon(suit);
 			$(".suit3 span").html("<div class='"+suit+"'><i class="+getStartIcon+"></i>"+value+"</div>");
-			removeByIndex(window[origin],place);
+			removeByIndex(window[origin],place,origin);
 			displayBottomDeck();
 		}else if(line3.length === 0){//row 4 start card
 			line3.push({"value":position,"name":value,"suit":suit});
 			suitFour = suit;
 			getStartIcon = getSuitIcon(suit);
 			$(".suit4 span").html("<div class='"+suit+"'><i class="+getStartIcon+"></i>"+value+"</div>");
-			removeByIndex(window[origin],place);
+			removeByIndex(window[origin],place,origin);
 			displayBottomDeck();
 		}
 	}else if(suit === suitTwo){//check to see if it can go in line 2 - is it in the first row
 	var inLineTest = getByValue(line0,value);
 	if(inLineTest){
 		console.log("its there");	line1.push({"value":position,"name":value,"suit":suit});
-		removeByIndex(window[origin],place);//remove from current location
+		removeByIndex(window[origin],place,origin);//remove from current location
 			updateDeck();
 		}else{
 		//console.log("not there");
@@ -418,7 +422,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	}else if(suit === suitThree){//check to see if it can go in line 3 - is it in the second 
 	var inLineTest = getByValue(line1,value);
 	if(inLineTest){
-	line2.push({"value":position,"name":value,"suit":suit});	removeByIndex(window[origin],place);
+	line2.push({"value":position,"name":value,"suit":suit});	removeByIndex(window[origin],place,origin);
 			updateDeck();
 		}else{
 			//console.log("not there");
@@ -428,7 +432,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	if(inLineTest){
 		//add to array
 		line3.push({"value":position,"name":value,"suit":suit});
-		removeByIndex(window[origin],place);//remove from current location
+		removeByIndex(window[origin],place,origin);//remove from current location
 		updateDeck();
 		}else{
 		//console.log("not there");
@@ -472,7 +476,7 @@ $('body').on('click', 'div.card', function() {
 });
 
 $(".flipem").click(function(){
-	//alert("asdf");
+	flipAmount = 3;//reset the flipAmount
 	flipThemCards("flipDeck");
 });
 
