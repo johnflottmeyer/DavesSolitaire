@@ -110,10 +110,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 ================ APP START 
 *********************************************/
 $(document).on("pagecreate","#gameboard", function(){ 
-    $(".loadpop").click(); 
+    
 });
 $(document).on('pageshow', '#gameboard' ,function () {
-   $("#positionSelector").click(); 
+   $(".loadpop").click(); 
+   //$("#positionSelector").click(); 
 });
 
 /*********************************************
@@ -337,7 +338,8 @@ function displayBottomDeck(){
 		if(e != flipDeck.length-1){ cardactive = "inactive"; } else{ cardactive = "";}
 		//if(e >= window.flipDeck.length-3){
 		if(e >= window.flipDeck.length-flipAmount){
-			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
+			//flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
+			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span></div>";
 		}else{
 			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" hiddencard' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
 		}
