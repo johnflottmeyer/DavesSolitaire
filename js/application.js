@@ -41,6 +41,7 @@ function initAds() {
     admob.setOptions({
       publisherId:      admobid.banner,
       interstitialAdId: admobid.interstitial,
+      autoShowInterstitial: false,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
       tappxShare:       0.5,
@@ -101,10 +102,14 @@ function onDeviceReady() {
     
   // request an interstitial 
   admob.requestInterstitialAd();
+  
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
-    
+
+$(function() {
+	FastClick.attach(document.body);
+}); 
     
 /*********************************************
 ================ APP START 
@@ -113,8 +118,7 @@ $(document).on("pagecreate","#gameboard", function(){
     
 });
 $(document).on('pageshow', '#gameboard' ,function () {
-   $(".loadpop").click(); 
-   //$("#positionSelector").click(); 
+   $("#positionSelector").popup('open', {positionTo: 'window'});
 });
 
 /*********************************************
