@@ -40,7 +40,7 @@ function initAds() {
         
     admob.setOptions({
       publisherId:      admobid.banner,
-      interstitialAdId: admobid.interstitial,
+      //interstitialAdId: admobid.interstitial,
       autoShowInterstitial: false,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
