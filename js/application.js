@@ -314,7 +314,7 @@ function createDeck(){
 	}
 	flipDeck = myObDeck;
   	displayBottomDeck();
-  	$("#positionSelector").popup("close");
+  	//$("#positionSelector").popup("close");
 }
 function updateDeck(){
 	displayBottomDeck();
@@ -504,7 +504,9 @@ $(".reset").click(function(){
 	//close panel
 	$("#mypanel").panel("close");
 	//load start popup
-	$("#positionSelector").popup("open");
+	//$("#positionSelector").popup("open");
+	
+   $("#positionSelector").popup('open', {positionTo: 'window'});
 	
 });
 $(".save").click(function(){
