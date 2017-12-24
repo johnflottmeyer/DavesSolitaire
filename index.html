@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="viewport">
   <head>
     <meta charset="utf-8">
     <title>Dave's Solitaire</title>
@@ -13,8 +13,8 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
 
-  <body>
-   <div class="container">
+  <body onresize="app.onResize()">
+   <div class="container app"  id="fullpage">
 	   <div data-role="page" id="gameboard">
 		   <div data-role="panel" id="mypanel">
 			   <!--toggle these two options-->

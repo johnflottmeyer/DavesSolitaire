@@ -18,7 +18,7 @@
     <gap:platform name="android" />
     
     <!-- third party plugins -->
-	<gap:plugin name="cordova-plugin-statusbar" source="npm" />
+	<!--<gap:plugin name="cordova-plugin-statusbar" source="npm" />-->
 	<gap:plugin name="phonegap-admob" source="npm"/>
 	 
     <!-- universal preferences -->
@@ -28,8 +28,8 @@
 	
 	<!-- ios preferences --> 
     <preference name="target-device" value="universal" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <!--<preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />-->
     <preference name="ios-statusbarstyle"         value="black-opaque" /> 
     <preference name="exit-on-suspend"            value="false" /> 
     
