@@ -14,19 +14,40 @@
   </head>
 
   <body onresize="app.onResize()">
+  <!--START PAGE-->
    <div class="container app"  id="fullpage">
+	    <div data-role="page" id="startgame">
+		   <div data-role="panel" id="mypanel">
+			   <!--toggle these two options-->
+		   <a href="#" class="deal ui-btn">Start Game</a>
+		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
+		   <a href="#" class="save ui-btn">Save</a>
+		   <a href="#" class="load ui-btn">Load</a>
+		   <!-- panel content goes here -->
+		</div><!-- /panel -->
+		   <div data-role="header"><h1>Dave's Solitaire</h1>
+		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
+		   </div>
+		<div role="main" class="ui-content">
+			<div class="message"></div>
+			
+			<h2>Begin Game</h2><p>Welcome to Dave's Solitaire, the solitaire game my dad played on Saturday mornings. Some more descriptive text here. To begin click Start Game below to deal out the cards of the deck.<br><a href="#gameboard" class="deal ui-btn" >Start Game</a>
+		
+			</div>
+	  
+	   </div>
+	   <!--END START PAGE-->
+	   <!--GAME BOARD-->
 	   <div data-role="page" id="gameboard">
 		   <div data-role="panel" id="mypanel">
 			   <!--toggle these two options-->
 		   <a href="#" class="deal ui-btn">Start Game</a>
-		   <a href="#" class="reset ui-btn ui-state-disabled">Reset</a>
+		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
 		   <a href="#" class="save ui-btn">Save</a>
 		   <a href="#" class="load ui-btn">Load</a>
     <!-- panel content goes here -->
 </div><!-- /panel -->
-<div data-role="popup" id="positionSelector" class="ui-content" data-theme="a" data-overlay-theme="a" data-position-to="window">
-<h2>Begin Game</h2><p>Welcome to Dave's Solitaire, the solitaire game my dad played on Saturday mornings. Some more descriptive text here. To begin click Start Game below to deal out the cards of the deck.<br><a href="#" class="deal ui-btn" >Start Game</a></p>
-</div>
+
 		   <div data-role="header"><h1>Dave's Solitaire</h1>
 		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
 		   </div>
@@ -65,6 +86,27 @@
 	  <a href="#positionSelector" data-rel="popup" data-position-to="window" data-transition="pop"  class="loadpop"></a>
 	  
 	   </div>
+	   <!--END GAMB BOAR-->
+	   <!--WINNER-->
+	   <div data-role="page" id="winner">
+		   <div data-role="panel" id="mypanel">
+			   <!--toggle these two options-->
+		   <a href="#" class="deal ui-btn">Start Game</a>
+		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset Game</a>
+		   <a href="#" class="save ui-btn">Save</a>
+		   <a href="#" class="load ui-btn">Load</a>
+    <!-- panel content goes here -->
+</div><!-- /panel -->
+
+		   <div data-role="header"><h1>Dave's Solitaire</h1>
+		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
+		   </div>
+	<div role="main" class="ui-content">
+		<h2 class="winner">WINNER WINNER CHICKEN DINNER!</h2>
+		<a href="#gameboard" class="reset ui-btn ui-state-disabled">Play Again?</a>
+		</div>
+	   </div>
+	   <!--END WINNER-->
     </div> <!-- /container -->
 
     <!-- Le javascript

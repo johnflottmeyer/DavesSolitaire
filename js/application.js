@@ -118,7 +118,7 @@ $(document).on("pagecreate","#gameboard", function(){
     
 });
 $(document).on('pageshow', '#gameboard' ,function () {
-   $("#positionSelector").popup('open', {positionTo: 'window'});
+   //$("#positionSelector").popup('open', {positionTo: 'window'});
 });
 
 /*********************************************
