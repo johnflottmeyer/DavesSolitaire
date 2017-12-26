@@ -30,8 +30,8 @@
     <preference name="target-device" value="universal" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
-    <preference name="auto-hide-splash-screen" value="FALSE" /> '
-    <preference name="ios-statusbarstyle"         value="black-opaque" /> 
+    <!--<preference name="auto-hide-splash-screen" value="FALSE" /> '
+    <preference name="ios-statusbarstyle"         value="black-opaque" />-->
     <preference name="exit-on-suspend"            value="false" /> 
     
    
