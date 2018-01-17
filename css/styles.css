@@ -24,6 +24,7 @@
 .middle-groups div{display:inline-block;}
 .bottom-groups{width:100%;}
 .bottom-groups li{display:inline-block;width:100%;padding:5px 5px;}
+
 /*card row display*************************************/
 .bottom-groups li .card, 
 .flip-deck .card,
