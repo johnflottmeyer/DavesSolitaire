@@ -110,7 +110,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 $(function() {
 	FastClick.attach(document.body);
 }); 
-    
+
 /*********************************************
 ================ APP START 
 *********************************************/
@@ -233,6 +233,22 @@ function searchArray(searchvalue, key, v) {
 		return false;
 	}
 }
+
+function animateCss(element,animation,windoworigin,cardplace,cardorigin){//, callback
+    //console.log(String('#'+element));
+    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+    if(cardorigin == "flipDeck"){
+	    animation = "zoomOutUp";
+    }
+    $('.'+element).addClass('animated '+animation).one(animationEnd, function() {
+        //console.log(this);
+        $(this).removeClass('animated '+ animation);
+        removeByIndex(windoworigin,cardplace,cardorigin);
+        console.log(windoworigin,cardplace,cardorigin);
+        updateDeck();//refresh the deck
+    });
+    //return this;
+}
 /*******************************************/
 function resetVariables(){
 	
@@ -331,7 +347,7 @@ function displayBottomDeck(){
 			var name = window['bottomdeck'+z][a].name;
 			var place = window['bottomdeck'+z][a].value;
 			iconsuit = getSuitIcon(suit);
-			inserthtml += "<div class='card "+suit+" "+inactive+"' id="+ name + ":" + suit +":" + place + ":" + a + " title='bottomdeck"+z+"'><i class="+iconsuit+"></i><span>"+name+"</span></div>";
+			inserthtml += "<div class='card "+suit+" "+inactive+" "+suit+name+place+a+"' id="+ name + ":" + suit +":" + place + ":" + a + " title='bottomdeck"+z+"'><i class="+iconsuit+"></i><span>"+name+"</span></div>";
 		}
 		$(".bottomgroup" + (z+1)).html(inserthtml);
 	}
@@ -343,9 +359,9 @@ function displayBottomDeck(){
 		//if(e >= window.flipDeck.length-3){
 		if(e >= window.flipDeck.length-flipAmount){
 			//flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
-			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span></div>";
+			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span></div>";
 		}else{
-			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" hiddencard' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
+			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+" zoomOutLeft' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
 		}
 		if(counter === 3){counter = 1;}else{counter++;}
 	}
@@ -386,40 +402,45 @@ function checkCanPlace(value,suit,title,deck,order){
 	var origin = title; //which deck is it coming from
 	var suit = suit; //what is its suit
 	var value = value; //what is it's face value
-	var place = order; //what is its order in the small deck that it is in so that we can remove it.
+	var place = order; //what is its order in the small deck that it is in so that we can remove it.\
+	
+	cardClass = suit+value+deck+order; //face : suit : positoion
+	
 	if(suitOne === suit){//lets compare it to the start cards suit to see if it can go in the row.
-		line0.push({"value":position,"name":value,"suit":suit});
-		removeByIndex(window[origin],place,origin);//remove from current location
-		updateDeck();//refresh the deck
+			line0.push({"value":position,"name":value,"suit":suit});
+			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
+		
+			//removeByIndex(window[origin],place,origin);//remove from current location
+			//updateDeck();//refresh the deck
 	}else if(value === startCard.name){ //let's see if it is a start card so that it can open up a new deck
 		if(line1.length === 0){//row 2 start card
 			line1.push({"value":position,"name":value,"suit":suit});
 			suitTwo = suit;
 			getStartIcon = getSuitIcon(suit);
 			$(".suit2 span").html("<div class='"+suit+"'><i class="+getStartIcon+"></i>"+value+"</div>");
-			removeByIndex(window[origin],place,origin);
-			displayBottomDeck();
+			//lets hide the card first
+			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 		}else if(line2.length === 0){//row 3 start card
 			line2.push({"value":position,"name":value,"suit":suit});
 			suitThree = suit;
 			getStartIcon = getSuitIcon(suit);
 			$(".suit3 span").html("<div class='"+suit+"'><i class="+getStartIcon+"></i>"+value+"</div>");
-			removeByIndex(window[origin],place,origin);
-			displayBottomDeck();
+			//lets hide the card first
+			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 		}else if(line3.length === 0){//row 4 start card
 			line3.push({"value":position,"name":value,"suit":suit});
 			suitFour = suit;
 			getStartIcon = getSuitIcon(suit);
 			$(".suit4 span").html("<div class='"+suit+"'><i class="+getStartIcon+"></i>"+value+"</div>");
-			removeByIndex(window[origin],place,origin);
-			displayBottomDeck();
+			//lets hide the card first
+			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 		}
 	}else if(suit === suitTwo){//check to see if it can go in line 2 - is it in the first row
 	var inLineTest = getByValue(line0,value);
 	if(inLineTest){
-		console.log("its there");	line1.push({"value":position,"name":value,"suit":suit});
-		removeByIndex(window[origin],place,origin);//remove from current location
-			updateDeck();
+			console.log("its there");	
+			line1.push({"value":position,"name":value,"suit":suit});
+			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 		}else{
 		//console.log("not there");
 		
@@ -428,8 +449,8 @@ function checkCanPlace(value,suit,title,deck,order){
 	}else if(suit === suitThree){//check to see if it can go in line 3 - is it in the second 
 	var inLineTest = getByValue(line1,value);
 	if(inLineTest){
-	line2.push({"value":position,"name":value,"suit":suit});	removeByIndex(window[origin],place,origin);
-			updateDeck();
+	line2.push({"value":position,"name":value,"suit":suit});	
+			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 		}else{
 			//console.log("not there");
 	}
@@ -438,8 +459,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	if(inLineTest){
 		//add to array
 		line3.push({"value":position,"name":value,"suit":suit});
-		removeByIndex(window[origin],place,origin);//remove from current location
-		updateDeck();
+		animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 		}else{
 		//console.log("not there");
 		
@@ -475,7 +495,7 @@ $('body').on('click', 'div.card', function() {
     	cardarray = cardname.split(":");
     	//console.log(cardarray);
     	checkCanPlace(cardarray[0],cardarray[1],$(this).attr("title"),cardarray[2],cardarray[3]);
-		messagefadeOut(cardvalue,1000);//temp item
+		messagefadeOut(cardname,1000,"normal");//temp item
 	}else{
 		messagefadeOut("Sorry, that card is locked. Please try a different one.",3000,"alert");
 	}
@@ -515,3 +535,4 @@ $(".save").click(function(){
 $(".load").click(function(){
 	console.log("Load");
 });
+
