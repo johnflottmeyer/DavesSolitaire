@@ -40,7 +40,7 @@ function initAds() {
         
     admob.setOptions({
       publisherId:      admobid.banner,
-      //interstitialAdId: admobid.interstitial,
+      interstitialAdId: admobid.interstitial,
       autoShowInterstitial: false,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
@@ -117,9 +117,7 @@ $(function() {
 $(document).on("pagecreate","#gameboard", function(){ 
     
 });
-$(document).on('pageshow', '#gameboard' ,function () {
-   //$("#positionSelector").popup('open', {positionTo: 'window'});
-});
+
 
 /*********************************************
 ================ INITIALIZED VARIABLES
@@ -358,7 +356,6 @@ function displayBottomDeck(){
 		if(e != flipDeck.length-1){ cardactive = "inactive"; } else{ cardactive = "";}
 		//if(e >= window.flipDeck.length-3){
 		if(e >= window.flipDeck.length-flipAmount){
-			//flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
 			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span></div>";
 		}else{
 			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+" zoomOutLeft' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
