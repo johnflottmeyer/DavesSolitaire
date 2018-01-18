@@ -345,7 +345,7 @@ function displayBottomDeck(){
 			var name = window['bottomdeck'+z][a].name;
 			var place = window['bottomdeck'+z][a].value;
 			iconsuit = getSuitIcon(suit);
-			inserthtml += "<div class='card "+suit+" "+inactive+" "+suit+name+place+a+"' id="+ name + ":" + suit +":" + place + ":" + a + " title='bottomdeck"+z+"'><i class="+iconsuit+"></i><span>"+name+"</span></div>";
+			inserthtml += "<div class='card "+suit+" "+inactive+" "+suit+name+place+a+"' id="+ name + ":" + suit +":" + place + ":" + a + " title='bottomdeck"+z+"'><span class='"+suit+"'>"+name+"</span><i class="+iconsuit+"></i></div>";
 		}
 		$(".bottomgroup" + (z+1)).html(inserthtml);
 	}
@@ -358,10 +358,10 @@ function displayBottomDeck(){
 		//if(e >= window.flipDeck.length-3){
 		if(e >= window.flipDeck.length-flipAmount){
 			//flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";
-			flipcards += "<div class='card this"+shownCards+" card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span></div>";
+			flipcards += "<div class='card this"+shownCards+" card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+"' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><span  class='"+flipDeck[e].suit+"'>" + flipDeck[e].name + "</span><i class="+getStartIcon+"></i></div>";
 			shownCards ++;
 		}else{
-			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+" hiddencard' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><i class="+getStartIcon+"></i><span>" + flipDeck[e].name + "</span><br><small>"+counter+"</small></div>";//zoomOutLeft 
+			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+" hiddencard' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><span  class='"+flipDeck[e].suit+"'>" + flipDeck[e].name + "</span><i class="+getStartIcon+"></i><br><small>"+counter+"</small></div>";//zoomOutLeft 
 		}
 		if(counter === 3){counter = 1;}else{counter++;}
 	}
@@ -377,7 +377,7 @@ function displayTopDeck(){
 			var name = window['line'+b][c].name;
 			var place = window['line'+b][c].value;
 			iconsuit = getSuitIcon(suit);
-			inserthtml += "<div class='card "+suit+" inactive' id='"+c+"'><i class="+iconsuit+"></i><span>"+name+"</span></div>";
+			inserthtml += "<div class='card "+suit+" inactive' id='"+c+"'><span class='"+suit+"'>"+name+"</span><i class="+iconsuit+"></i></div>";
 		}
 		$("li.suit" + (b+1) + " div.deckcards").html(inserthtml);
 	}
