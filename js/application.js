@@ -41,11 +41,10 @@ function initAds() {
     admob.setOptions({
       publisherId:      admobid.banner,
       interstitialAdId: admobid.interstitial,
-      autoShowInterstitial: false,
+      autoShowInterstitial: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
       tappxShare:       0.5,
-      
     });
 
     registerAdEvents();
