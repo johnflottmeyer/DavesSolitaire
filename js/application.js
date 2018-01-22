@@ -153,12 +153,14 @@ removeByIndex = function(arr,index,title) {//remove an item from teh array
 	console.log(title);
 	console.log(index + " removed from " + arr);
 	if(title == "flipDeck"){
-		if(flipAmount != 0){
+		console.log("flipBefore: " +flipAmount);
+		if(flipAmount >= 0){
 			flipAmount --;
-			console.log(flipAmount);
+			console.log("we are at the end"+flipAmount);
 		}else{
 			flipAmount = 3;//reset the amount - maybe have some dealing animation here - or in the flipem function
 		}
+		console.log("flipA: " +flipAmount);
 	}
 	
 };
@@ -233,18 +235,22 @@ function searchArray(searchvalue, key, v) {
 }
 
 function animateCss(element,animation,windoworigin,cardplace,cardorigin){//, callback
-    //console.log(String('#'+element));
+    console.log(String('#'+element));
     var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
     if(cardorigin == "flipDeck"){
 	    animation = "zoomOutUp";
+	    removeByIndex(windoworigin,cardplace,cardorigin);
+	    updateDeck();//refresh the deck
+    }else{
+    	removeByIndex(windoworigin,cardplace,cardorigin);
+		$('.'+element).addClass('animated '+animation).one(animationEnd, function() {
+        	$(this).removeClass('animated '+ animation);
+			updateDeck();//refresh the deck
+    	});
     }
-    $('.'+element).addClass('animated '+animation).one(animationEnd, function() {
-        //console.log(this);
-        $(this).removeClass('animated '+ animation);
-        removeByIndex(windoworigin,cardplace,cardorigin);
-        console.log(windoworigin,cardplace,cardorigin);
-        updateDeck();//refresh the deck
-    });
+        
+        
+    
     //return this;
 }
 /*******************************************/
@@ -350,7 +356,7 @@ function displayBottomDeck(){
 		$(".bottomgroup" + (z+1)).html(inserthtml);
 	}
 	var flipcards = "";
-	var counter = 1;
+	var counter = 3;
 	var shownCards = 0;
 	for(e=0;e<window.flipDeck.length;e++){
 		var getStartIcon = getSuitIcon(flipDeck[e].suit);
@@ -363,7 +369,7 @@ function displayBottomDeck(){
 		}else{
 			flipcards += "<div class='card card"+counter + " " + flipDeck[e].suit +" " + cardactive +" "+flipDeck[e].suit+flipDeck[e].name+flipDeck[e].value+e+" hiddencard' id='"+ flipDeck[e].name + ":" + flipDeck[e].suit + ":" + flipDeck[e].value + ":" + e + "' title='flipDeck'><span  class='"+flipDeck[e].suit+"'>" + flipDeck[e].name + "</span><i class="+getStartIcon+"></i><br><small>"+counter+"</small></div>";//zoomOutLeft 
 		}
-		if(counter === 3){counter = 1;}else{counter++;}
+		if(counter === 1){counter = 3;}else{counter--;}
 	}
 	$('.flip-deck').html(flipcards);
 	//$('.flip-deck').removeClass('animated slideInLeft');
@@ -450,7 +456,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	}else if(suit === suitTwo){//check to see if it can go in line 2 - is it in the first row
 	var inLineTest = getByValue(line0,value);
 	if(inLineTest){
-			console.log("its there");	
+			//console.log("its there");	//
 			line1.push({"value":position,"name":value,"suit":suit});
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
 			messagefadeOut(value + suit + " can go in row 2",1000,"normal");//temp item
@@ -508,7 +514,7 @@ $('body').on('click', 'div.card', function() {
     	var cardname = $(this).attr("id");
     	var cardarray = []; //temp item
     	cardarray = cardname.split(":");
-    	//console.log(cardarray);
+    	console.log(cardarray[0]);
     	checkCanPlace(cardarray[0],cardarray[1],$(this).attr("title"),cardarray[2],cardarray[3]);
 	}else{
 		messagefadeOut("Sorry, that card is locked. Please try a different one.",3000,"alert");

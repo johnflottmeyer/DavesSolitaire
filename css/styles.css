@@ -3,7 +3,15 @@
     color:#FFF;
     text-shadow:1px 1px 2px black;
     height:45px;
+    -moz-box-shadow:    inset 0 -5px 2px rgba(33,33,33,.1);
+   -webkit-box-shadow: inset 0 -5px 2px rgba(33,33,33,.1);
+   box-shadow:         inset 0 -5px 2px rgba(33,33,33,.1);
+   border-bottom:1px solid #666;
 }
+.ui-page .ui-header h1 {
+	margin-top:4px !important;
+}
+
 .ui-page{
 	background:#a0ab28 !important;
 }
@@ -17,6 +25,7 @@
 	-moz-box-shadow:    inset 0 0 30px #A9A9A9;
    -webkit-box-shadow: inset 0 0 30px #A9A9A9;
    box-shadow:         inset 0 0 30px #C0C0C0;
+   border:1px solid #666;
    border-radius:5px;
   }
 .middle-groups li{margin:4px 4px;border-radius:5px;display:block;background:#FFF;}
@@ -36,6 +45,8 @@
 .flipdeck div.this1{-webkit-animation-duration:1s;}
 .flipdeck div.this0{-webkit-animation-duration:0s;}
 
+.card{-webkit-animation-duration:1.5s;}
+
 /*card row display*************************************/
 .bottom-groups li .card, 
 .flip-deck .card,
@@ -54,27 +65,45 @@
 	margin-top:2px;
 }
 .deckcards .card{
+	/*margin-left:-10px !important;*/
 	margin-left:-10px !important;
 	opacity:1 !important;
 	pointer-events: none;
 	cursor: default;
+	border:none !important;
+	/*border-bottom:1px solid #666 !important;
+	border-left:1px solid #CCC !important;
+	border-top:1px solid #CCC !important;*/
 }
 .bottomgroup1,.bottomgroup2,.bottomgroup3,.bottomgroup4{padding:5px 0px;box-sizing:border-box;}
 .side-quarter{width:30%;display:inline-block;box-sizing:border-box;vertical-align:top;}
 .side-threequarter{width:65%;display:inline-block;box-sizing:border-box;vertical-align:top;}
 .inactive{opacity:.5;}
-.card{width:18px;height:24px;border:1px solid #ccc;border-radius:3px;display:inline-block;background:#FFF;position:relative;overflow: hidden;}
+.card{width:18px;height:24px;
+	/*border:1px solid #666;*/
+	border:none;
+	border-radius:3px;display:inline-block;background:#FFF;position:relative;overflow: hidden;
+	-moz-box-shadow:    -3px 1px 3px rgba(33, 33, 33, .2);
+   -webkit-box-shadow: -3px 1px 3px rgba(33, 33, 33, .2);
+   box-shadow:         -3px 1px 3px rgba(33, 33, 33, .2);
+}
 .card:first-child{margin-left:0px;}
-.card i{position:absolute;bottom:0px;left:0px;width:100%;text-align:center;font-size:15px;vertical-align:bottom;margin:0px auto;text-shadow: 0px 2px rgba(255, 255, 255, 1) !important; z-index:50;}/*margin:0px auto auto 0px;font-size:25px;*/
-.card span{position:absolute;left:0px;width:100%;text-align:center;color:#fff;
+.card i{position:absolute;bottom:0px;left:0px;width:100%;text-align:center;font-size:15px;vertical-align:bottom;margin:0px auto;text-shadow: 0px 2px rgba(255, 255, 255, 1) !important; /*z-index:50;*/}/*margin:0px auto auto 0px;font-size:25px;*/
+.card span{
+	position:absolute;left:0px;width:100%;text-align:center;color:#fff;
 	/*text-shadow: 0px 2px rgba(255, 255, 255, 1) !important; */
 	text-shadow:none;
 	/*text-shadow: 1px 1px 0 #000 !important;*/
 	top:0px !important;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
 	vertical-align:top;
-	 z-index:20;
+	 /*z-index:20;*/
+}
+.card span i{
+	display:inline-block !important;
+	position:relative !important;
+	color:#FFF !important;
 }
 .card span.C, .card span.S{background:black;}
 .card span.D, .card span.H{background:red;}
@@ -92,16 +121,24 @@
 	background:#ebebeb;
 	display:block;
 }
-.inactive{border:1px solid #EBEBEB;}
+/*.inactive{border:1px solid #EBEBEB;}*/
 .ui-content{padding:7px !important;}
 .C, .S{color:black;}
 .D, .H{color:red;}
 .H:before{
 	
 }
-.message{color:black !important;height:45px;text-align:center;padding:10px 30px;}
+
+.message-container{color:black !important;padding:10px;font-size:14px;text-align:center;display:inline-block;border-radius:3px;margin-top:3px;}
 .message-alert{color:white !important;}
 .message-success{background:green;}
 .message-normal{color:black !important;}
+.message-container{
+	background:#EBEBEB;
+	-moz-box-shadow:    inset 0 5px 2px rgba(33,33,33,.1);
+   -webkit-box-shadow: inset 0 5px 2px rgba(33,33,33,.1);
+   box-shadow:         inset 0 5px 2px rgba(33,33,33,.1);
+   border-bottom:1px solid #666;
+}
 
 /*320 4cards 13 320/17 = 18.82  * 3 margins 5px each 305/17 = 17.94*/ 
