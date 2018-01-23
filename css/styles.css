@@ -121,6 +121,15 @@
 	background:#ebebeb;
 	display:block;
 }
+.flipem{
+	background: #909e00 !important;
+    color:#FFF !important;
+    border-radius:5px;
+    text-decoration:none !important;
+	padding:5px;
+	margin:0px;
+	text-shadow:none !important;
+}
 /*.inactive{border:1px solid #EBEBEB;}*/
 .ui-content{padding:7px !important;}
 .C, .S{color:black;}
@@ -129,12 +138,12 @@
 	
 }
 
-.message-container{color:black !important;padding:10px;font-size:14px;text-align:center;display:inline-block;border-radius:3px;margin-top:3px;}
+.message-container{color:white !important;padding:8px 20px !important;font-size:12px !important;text-align:center !important;display:inline-block;border-radius:3px;margin-top:15px !important;width:50%}
 .message-alert{color:white !important;}
-.message-success{background:green;}
-.message-normal{color:black !important;}
+.message-success{background:green !important;}
+.message-normal{color:white !important;}
 .message-container{
-	background:#EBEBEB;
+	background:rgba(33,33,33,.2);
 	-moz-box-shadow:    inset 0 5px 2px rgba(33,33,33,.1);
    -webkit-box-shadow: inset 0 5px 2px rgba(33,33,33,.1);
    box-shadow:         inset 0 5px 2px rgba(33,33,33,.1);
