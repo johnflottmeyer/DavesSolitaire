@@ -17,6 +17,20 @@ gameactions.push({action:"add to top deck",action:"remove from bottom deck"});
 :::::::: Add some AI to the game
 Check to see if the start card exists in the bottom decks and if it does make sure that the cards in front of them are not a matching suit. 
 *********************************************/
+var savegames;
+
+localforage.config({
+    driver      : localforage.WEBSQL, // Force WebSQL; same as using setDriver() - indexDB
+    name        : 'daveApp',
+    version     : 1.0,
+    size        : 4980736, // Size of database, in bytes. WebSQL-only for now.
+    storeName   : 'keyvalue_pairs', // Should be alphanumeric, with underscores.
+    description : 'savegames'
+});
+
+savegames = localforage.createInstance({ //Orders Database
+	name: "savegames"
+});
 
 /***********************************************
 ======== ADVERTISING
@@ -106,14 +120,20 @@ function onDeviceReady() {
     
   // request an interstitial 
   admob.requestInterstitialAd();
-  
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
 /*LocalForage*/
-var product = localforage.createInstance({ //Product Database
-	name: "savegames"
+// create the db to use 
+
+savegames.setItem("saved","yay").then(function (value) {
+  console.log('created')
+}).catch(function(err) {
+	// This code runs if there were any errors
+	console.log(err);
 });
+
 /*Fastclick*/
 $(function() {
 	FastClick.attach(document.body);
@@ -159,17 +179,17 @@ var flipAmount = 3;
 removeByIndex = function(arr,index,title) {//remove an item from teh array
 	console.log(arr,index,title);
 	arr.splice(index, 1);
-	console.log(title);
-	console.log(index + " removed from " + arr);
+	//console.log(title);
+	//console.log(index + " removed from " + arr);
 	if(title == "flipDeck"){
-		console.log("flipBefore: " +flipAmount);
+		//console.log("flipBefore: " +flipAmount);
 		if(flipAmount >= 0){
 			flipAmount --;
-			console.log("we are at the end"+flipAmount);
+			//console.log("we are at the end"+flipAmount);
 		}else{
 			flipAmount = 3;//reset the amount - maybe have some dealing animation here - or in the flipem function
 		}
-		console.log("flipA: " +flipAmount);
+		//console.log("flipA: " +flipAmount);
 	}
 	
 };
