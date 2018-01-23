@@ -18,15 +18,7 @@
   <!--START PAGE-->
    <div class="container app"  id="fullpage">
 	    <div data-role="page" id="startgame">
-		   <div data-role="panel" id="mypanel">
-			   <!--toggle these two options-->
-		   <a href="#" class="deal ui-btn">Start Game</a>
-		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
-		   <a href="#" class="save ui-btn">Save</a>
-		   <a href="#" class="load ui-btn">Load</a>
-		   <!-- panel content goes here -->
-		</div><!-- /panel -->
-		   <div data-role="header"><h1>Dave's Solitaire</h1>
+		  		   <div data-role="header"><h1>Dave's Solitaire</h1>
 		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
 		   </div>
 		<div role="main" class="ui-content">
@@ -40,65 +32,45 @@
 	   <!--END START PAGE-->
 	   <!--GAME BOARD-->
 	   <div data-role="page" id="gameboard">
-		   <div data-role="panel" id="mypanel">
-			   <!--toggle these two options-->
-		   <a href="#" class="deal ui-btn">Start Game</a>
-		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
-		   <a href="#" class="save ui-btn">Save</a>
-		   <a href="#" class="load ui-btn">Load</a>
-    <!-- panel content goes here -->
-</div><!-- /panel -->
-
 		   <div data-role="header">
 			   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
 			   <h1 class="message-container"><div class="message"></div></h1>
 		   </div>
-	<div role="main" class="ui-content">
+		    <div role="main" class="ui-content">
+				
+			<div class="row">
+			   <div class="middle-groups">
+				   <ul>
+					   <li class="suit1"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+					   <li class="suit2"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+					   <li class="suit3"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+					   <li class="suit4"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
+				   </ul>
+			   </div>
+			</div>
+			<div class="row">
+				<div class="bottom-groups">
+					<ul>
+						<li class="bottomgroup1">&nbsp;</li>
+						<li class="bottomgroup2">&nbsp;</li>
+						<li class="bottomgroup3">&nbsp;</li>
+						<li class="bottomgroup4">&nbsp;</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row flipdeck">
+				<div class="side-threequarter flip-deck"></div>
+				<div class="side-quarter">
+					<a href="#" class="ui-btn ui-mini flipem">Deal</a>
+		   		</div>
+			</div>
 		
-		<div class="row">
-		
-	   <div class="middle-groups">
-		   <ul>
-			   <li class="suit1"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
-			   <li class="suit2"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
-			   <li class="suit3"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
-			   <li class="suit4"><span class="rowsuit">&nbsp;</span><div class="deckcards"></div></li>
-		   </ul>
-	   </div>
-		</div>
-		<div class="row">
-			<div class="bottom-groups">
-				<ul>
-					<li class="bottomgroup1">&nbsp;</li>
-					<li class="bottomgroup2">&nbsp;</li>
-					<li class="bottomgroup3">&nbsp;</li>
-					<li class="bottomgroup4">&nbsp;</li>
-				</ul>
 			</div>
 		</div>
-		<div class="row flipdeck">
-			<div class="side-threequarter flip-deck"></div>
-			<div class="side-quarter">
-				<a href="#" class="ui-btn ui-mini flipem">Deal</a>
-	   		</div>
-	   		
-		</div>
-		
-	</div>
-	  <a href="#positionSelector" data-rel="popup" data-position-to="window" data-transition="pop"  class="loadpop"></a>
-	  
-	   </div>
 	   <!--END GAMB BOAR-->
 	   <!--WINNER-->
 	   <div data-role="page" id="winner">
-		   <div data-role="panel" id="mypanel">
-			   <!--toggle these two options-->
-		   <a href="#" class="deal ui-btn">Start Game</a>
-		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset Game</a>
-		   <a href="#" class="save ui-btn">Save</a>
-		   <a href="#" class="load ui-btn">Load</a>
-    <!-- panel content goes here -->
-</div><!-- /panel -->
+		   
 
 		   <div data-role="header"><h1>Dave's Solitaire</h1>
 		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
@@ -109,6 +81,19 @@
 		</div>
 	   </div>
 	   <!--END WINNER-->
+	   
+	   
+	   <div data-role="panel" id="mypanel" data-position="left" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate">
+			   <!--toggle these two options-->
+		   <a href="#" class="deal ui-btn">Start Game</a>
+		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
+		   <a href="#" class="save ui-btn">Save</a>
+		   <a href="#" class="load ui-btn">Load</a>
+		   
+    <!-- panel content goes here -->
+</div><!-- /panel -->
+
+
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -121,6 +106,7 @@
     <script src="js/jquery-migrate-3.0.0.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/application.js"></script>
+    <script src="js/saveGame.js"></script>
   
 
   </body>

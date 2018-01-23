@@ -59,8 +59,10 @@ function initAds() {
       publisherId:      admobid.banner,
       interstitialAdId: admobid.interstitial,
       overlap: true,
+      bannerAtTop: true,
       isTesting: true, //whoops hopefully I am not banned for running without this. 
-      autoShowInterstitial: true,
+      autoShowInterstitial: false,
+      autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
       tappxShare:       0.5,
@@ -123,16 +125,6 @@ function onDeviceReady() {
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
-
-/*LocalForage*/
-// create the db to use 
-
-savegames.setItem("saved","yay").then(function (value) {
-  console.log('created')
-}).catch(function(err) {
-	// This code runs if there were any errors
-	console.log(err);
-});
 
 /*Fastclick*/
 $(function() {
@@ -578,10 +570,9 @@ $(".reset").click(function(){
    $("#positionSelector").popup('open', {positionTo: 'window'});
 	
 });
-$(".save").click(function(){
-	console.log("Save");
-});
-$(".load").click(function(){
-	console.log("Load");
+$( "#mypanel" ).panel({
+  beforeopen: function( event, ui ) {
+	  console.log('load data');
+  }
 });
 
