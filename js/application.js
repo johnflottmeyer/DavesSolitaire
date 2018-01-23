@@ -1,11 +1,13 @@
 /***********************************************
-==============================================
 Dave's Solitaire - My dad's favorite version of 
 solitaire to play on Saturday mornings.
 
 
 //maybe the card should be a card object and have a suit property and value property!
 //then we can discern the value and suit by looking at the cards properties.
+
+:::::::: add in save state ::::::::::::::::::::::::
+Make it so that we can save and load saved games so that good games can be stored for later. 
 
 :::::::: set up array of moves to create an undo button. 
 reverse functions then 
@@ -14,12 +16,13 @@ gameactions.push({action:"add to top deck",action:"remove from bottom deck"});
 
 :::::::: Add some AI to the game
 Check to see if the start card exists in the bottom decks and if it does make sure that the cards in front of them are not a matching suit. 
-
-==============================================
 *********************************************/
 
 /***********************************************
-========== ADVERTISING ============
+======== ADVERTISING
+:::::::: Google AdMob ::::::::::::::::::::::::
+Ad in interstitial ads and banners to raise some revenue for the app. 
+
 *********************************************/
  var isAppForeground = true;
     
@@ -41,6 +44,8 @@ function initAds() {
     admob.setOptions({
       publisherId:      admobid.banner,
       interstitialAdId: admobid.interstitial,
+      overlap: true,
+      isTesting: true, //whoops hopefully I am not banned for running without this. 
       autoShowInterstitial: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
@@ -105,7 +110,11 @@ function onDeviceReady() {
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
-
+/*LocalForage*/
+var product = localforage.createInstance({ //Product Database
+	name: "savegames"
+});
+/*Fastclick*/
 $(function() {
 	FastClick.attach(document.body);
 }); 
