@@ -44,12 +44,12 @@ function initAds() {
   if (admob) {
     var adPublisherIds = {
       ios : {
-        banner : "ca-app-pub-8087701798858995/6405768747",
-        interstitial : "ca-app-pub-8087701798858995/9554019722"
+        banner : "ca-app-pub-8087701798858995/6405768747" //,
+        //interstitial : "ca-app-pub-8087701798858995/9554019722"
       },
       android : {
-        banner : "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB",
-        interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
+        banner : "ca-app-pub-XXXXXXXXXXXXXXXX/BBBBBBBBBB" //,
+        //interstitial : "ca-app-pub-XXXXXXXXXXXXXXXX/IIIIIIIIII"
       }
     };
 	  
@@ -57,11 +57,11 @@ function initAds() {
         
     admob.setOptions({
       publisherId:      admobid.banner,
-      interstitialAdId: admobid.interstitial,
+      //interstitialAdId: admobid.interstitial,
       overlap: true,
       bannerAtTop: true,
       isTesting: true, //whoops hopefully I am not banned for running without this. 
-      autoShowInterstitial: false,
+      //autoShowInterstitial: false,
       autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
@@ -77,12 +77,13 @@ function initAds() {
 
 function onAdLoaded(e) {
   if (isAppForeground) {
-    if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
-      console.log("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
-    } else if (e.adType === admob.AD_TYPE_BANNER) {
+    //if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
+      //console.log("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
+    //} else 
+    if (e.adType === admob.AD_TYPE_BANNER) {
       console.log("New banner received");
     }
-  }
+  //}
 }
 
 function onPause() {
@@ -95,7 +96,7 @@ function onPause() {
 function onResume() {
   if (!isAppForeground) {
     setTimeout(admob.createBannerView, 1);
-    setTimeout(admob.requestInterstitialAd, 1);
+    //setTimeout(admob.requestInterstitialAd, 1);
     isAppForeground = true;
   }
 }
@@ -121,7 +122,7 @@ function onDeviceReady() {
   admob.createBannerView();
     
   // request an interstitial 
-  admob.requestInterstitialAd();
+  //admob.requestInterstitialAd();
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
