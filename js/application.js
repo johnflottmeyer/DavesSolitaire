@@ -69,9 +69,10 @@ function initAds() {
     });
 
     registerAdEvents();
+    console.log("ads inititalized");
     
   } else {
-    alert('AdMobAds plugin not ready');
+    //alert('AdMobAds plugin not ready');
   }
 }
 
@@ -89,6 +90,7 @@ function onPause() {
   if (isAppForeground) {
     admob.destroyBannerView();
     isAppForeground = false;
+    console.log("pause")
   }
 }
 
@@ -97,6 +99,7 @@ function onResume() {
     setTimeout(admob.createBannerView, 1);
     //setTimeout(admob.requestInterstitialAd, 1);
     isAppForeground = true;
+    console.log("resume");
   }
 }
 
@@ -122,6 +125,7 @@ function onDeviceReady() {
     
   // request an interstitial 
   //admob.requestInterstitialAd();
+  console.log("ready");
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
