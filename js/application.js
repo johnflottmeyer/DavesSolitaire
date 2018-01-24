@@ -61,7 +61,7 @@ function initApp() {
     if (AdMob) {
         AdMob.createBanner({
             adId : admobid.banner,
-            position : AdMob.AD_POSITION.BOTTOM_CENTER,
+			isTesting: true, // set to true, to receiving test ad for testing purpose
             autoShow : true
         });
     }
