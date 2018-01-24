@@ -58,10 +58,10 @@ function initAds() {
     admob.setOptions({
       publisherId:      admobid.banner,
       interstitialAdId: admobid.interstitial,
-      overlap: true,
-      bannerAtTop: true,
+      //overlap: true,
+      //bannerAtTop: true,
       isTesting: true, //whoops hopefully I am not banned for running without this. 
-      autoShowInterstitial: false,
+      //autoShowInterstitial: false,
       autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
