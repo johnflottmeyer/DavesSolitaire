@@ -38,7 +38,28 @@ savegames = localforage.createInstance({ //Orders Database
 Ad in interstitial ads and banners to raise some revenue for the app. 
 
 *********************************************/
- 
+  function onDeviceReady() {
+      document.removeEventListener('deviceready', onDeviceReady, false);
+      
+      // Set AdMobAds options:
+      admob.setOptions({
+        publisherId:          "ca-app-pub-8087701798858995/7121143441",  // Required - 
+pub-8087701798858995
+        interstitialAdId:     "ca-app-pub-8087701798858995/9554019722",  // Optional
+        tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
+        tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
+        tappxShare:           0.5                                        // Optional
+      });
+      
+      // Start showing banners (atomatic when autoShowBanner is set to true)
+      admob.createBannerView();
+      
+      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+      admob.requestInterstitialAd();
+    }
+    
+    document.addEventListener("deviceready", onDeviceReady, false);
+ /*
 var isAppForeground = true;
     
 function initAds() {
@@ -133,7 +154,7 @@ function onDeviceReady() {
 }
 
 document.addEventListener("deviceready", onDeviceReady, false);
-
+*/
 /*Fastclick*/
 $(function() {
 	FastClick.attach(document.body);
