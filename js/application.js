@@ -39,7 +39,7 @@ Ad in interstitial ads and banners to raise some revenue for the app.
 
 *********************************************/
  
-/*var isAppForeground = true;
+var isAppForeground = true;
     
 function initAds() {
   if (admob) {
@@ -73,7 +73,7 @@ function initAds() {
     console.log("ads inititalized");
     
   } else {
-    //alert('AdMobAds plugin not ready');
+    console.log('AdMobAds plugin not ready');
   }
 }
 
@@ -125,11 +125,11 @@ function onDeviceReady() {
   admob.createBannerView();
     
   // request an interstitial 
-  //admob.requestInterstitialAd();
+  admob.requestInterstitialAd();
   console.log("ready");
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);*/
+document.addEventListener("deviceready", onDeviceReady, false);
 
 /*Fastclick*/
 $(function() {
