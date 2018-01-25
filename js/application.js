@@ -78,6 +78,7 @@ function initAds() {
 }
 
 function onAdLoaded(e) {
+	console.log(JSON.stringify(e));
   if (isAppForeground) {
     if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
       console.log("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
