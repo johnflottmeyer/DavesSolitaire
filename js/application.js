@@ -82,7 +82,7 @@ function initAds() {
       interstitialAdId: admobid.interstitial,
       //overlap: true,
       //bannerAtTop: true,
-      isTesting: true, //whoops hopefully I am not banned for running without this. 
+      //isTesting: true, //whoops hopefully I am not banned for running without this. 
       //autoShowInterstitial: false,
       //autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
