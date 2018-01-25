@@ -109,6 +109,9 @@ function onAdLoaded(e) {
     }
   }
 }
+function onAdFailedToLoad(e) {
+	console.log(JSON.stringify(e));
+}
 
 function onPause() {
   if (isAppForeground) {
