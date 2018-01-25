@@ -45,7 +45,7 @@ function initAds() {
   if (admob) {
     var adPublisherIds = {
       ios : {
-        banner : "ca-app-pub-8087701798858995/7121143441" , //ca-app-pub-8087701798858995~8219034559 //
+        banner : "ca-app-pub-8087701798858995/7121143441", //ca-app-pub-8087701798858995~8219034559 //
         interstitial : "ca-app-pub-8087701798858995/9554019722"
       },
       android : {
@@ -63,7 +63,7 @@ function initAds() {
       //bannerAtTop: true,
       isTesting: true, //whoops hopefully I am not banned for running without this. 
       //autoShowInterstitial: false,
-      autoShowBanner: true,
+      //autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
       tappxShare:       0.5,
@@ -78,6 +78,7 @@ function initAds() {
 }
 
 function onAdLoaded(e) {
+	alert("ads!");
 	console.log(JSON.stringify(e));
   if (isAppForeground) {
     if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
@@ -127,7 +128,7 @@ function onDeviceReady() {
     
   // request an interstitial 
   admob.requestInterstitialAd();
-  FastClick.attach(document.body);
+  //FastClick.attach(document.body);
   console.log("ready");
 }
 
@@ -135,7 +136,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 /*Fastclick*/
 $(function() {
-	//FastClick.attach(document.body);
+	FastClick.attach(document.body);
 }); 
 
 /*********************************************
