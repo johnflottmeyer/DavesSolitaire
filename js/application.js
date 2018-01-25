@@ -127,6 +127,7 @@ function onDeviceReady() {
     
   // request an interstitial 
   admob.requestInterstitialAd();
+  FastClick.attach(document.body);
   console.log("ready");
 }
 
@@ -134,7 +135,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 /*Fastclick*/
 $(function() {
-	FastClick.attach(document.body);
+	//FastClick.attach(document.body);
 }); 
 
 /*********************************************
