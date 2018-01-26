@@ -63,8 +63,8 @@ function initAds() {
       //overlap: true,
       //bannerAtTop: true,
       //isTesting: true, //whoops hopefully I am not banned for running without this. 
-      //autoShowInterstitial: false,
-      //autoShowBanner: true,
+      autoShowInterstitial: false,
+      autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
       tappxIdAndroid:   "/XXXXXXXXX/Pub-XXXX-Android-AAAA",
       tappxShare:       0.5,
