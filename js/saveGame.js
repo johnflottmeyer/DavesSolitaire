@@ -25,7 +25,25 @@ function GameSaveHelper(arr1){
 	SaveGame(date,arr1);
 }
 /*Show Saved Games*/
+function getSavedGames(){
+	console.log("get the game data");
+	var saveem = "";
+	savegames.iterate(function(value, key, iterationNumber) {
+    // Resulting key/value pair -- this callback
+    // will be executed for every item in the
+    // database.
+    console.log([key, value]);
+	  //console.log('game saved');
+	  //messagefadeOut("Your Game was Saved",1000,"normal");//temp item
+	  saveem += "<div class='ui-grid-a'><div class='ui-block-a'><a href='"+key+"' class='ui-btn ui-btn-mini'>Restore?</a></div><div class='ui-block-b'>"+key+"</div></div>";
 
+	}).then( function(){
+		$('.saved-games').html(saveem);		
+	}).catch(function(err) {
+		// This code runs if there were any errors
+		console.log(err);
+	});
+}
 /*Button to Save / Load*/
 //need to get the array and create a title
 $(".save").click(function(){
@@ -36,5 +54,5 @@ $(".save").click(function(){
 
 $(".load").click(function(){
 	//make sure a saved one is selected - then 
-	console.log("Load");
+	getSavedGames();
 });

@@ -32,33 +32,13 @@ savegames = localforage.createInstance({ //Orders Database
 	name: "savegames"
 });
 
+
 /***********************************************
 ======== ADVERTISING
 :::::::: Google AdMob ::::::::::::::::::::::::
 Ad in interstitial ads and banners to raise some revenue for the app. 
 
 *********************************************/
-  /*function onDeviceReady() {
-      document.removeEventListener('deviceready', onDeviceReady, false);
-      
-      // Set AdMobAds options:
-      admob.setOptions({
-        publisherId:          "ca-app-pub-8087701798858995/7121143441",  // Required - 
-pub-8087701798858995
-        interstitialAdId:     "ca-app-pub-8087701798858995/9554019722",  // Optional
-        tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
-        tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
-        tappxShare:           0.5                                        // Optional
-      });
-      
-      // Start showing banners (atomatic when autoShowBanner is set to true)
-      admob.createBannerView();
-      
-      // Request interstitial (will present automatically when autoShowInterstitial is set to true)
-      admob.requestInterstitialAd();
-    }
-    
-    document.addEventListener("deviceready", onDeviceReady, false);*/
  
 var isAppForeground = true;
     
@@ -82,7 +62,7 @@ function initAds() {
       interstitialAdId: admobid.interstitial,
       //overlap: true,
       //bannerAtTop: true,
-      isTesting: true, //whoops hopefully I am not banned for running without this. 
+      //isTesting: true, //whoops hopefully I am not banned for running without this. 
       //autoShowInterstitial: false,
       //autoShowBanner: true,
       tappxIdiOS:       "/XXXXXXXXX/Pub-XXXX-iOS-IIII",
@@ -94,13 +74,13 @@ function initAds() {
     console.log("ads inititalized");
     
   } else {
-    console.log('AdMobAds plugin not ready');
+    alert('AdMobAds plugin not ready');
   }
 }
 
 function onAdLoaded(e) {
-	alert("ads!");
-	console.log(JSON.stringify(e));
+	//alert("ads!");
+	//console.log(JSON.stringify(e));
   if (isAppForeground) {
     if (e.adType === admob.AD_TYPE.INTERSTITIAL) {
       console.log("An interstitial has been loaded and autoshown. If you want to load the interstitial first and show it later, set 'autoShowInterstitial: false' in admob.setOptions() and call 'admob.showInterstitialAd();' here");
@@ -110,23 +90,24 @@ function onAdLoaded(e) {
   }
 }
 function onAdFailedToLoad(e) {
-	console.log(JSON.stringify(e));
+	alert("where is it");
+	//console.log(JSON.stringify(e));
 }
 
 function onPause() {
   if (isAppForeground) {
     admob.destroyBannerView();
     isAppForeground = false;
-    console.log("pause")
+    //console.log("pause")
   }
 }
 
 function onResume() {
   if (!isAppForeground) {
     setTimeout(admob.createBannerView, 1);
-    //setTimeout(admob.requestInterstitialAd, 1);
+    setTimeout(admob.requestInterstitialAd, 1);
     isAppForeground = true;
-    console.log("resume");
+    //console.log("resume");
   }
 }
 
@@ -152,6 +133,7 @@ function onDeviceReady() {
     
   // request an interstitial 
   admob.requestInterstitialAd();
+  
   //FastClick.attach(document.body);
   console.log("ready");
 }
@@ -602,9 +584,10 @@ $(".reset").click(function(){
    $("#positionSelector").popup('open', {positionTo: 'window'});
 	
 });
-$( "#mypanel" ).panel({
-  beforeopen: function( event, ui ) {
+/*$( "#mypanel" ).on( "panelbeforeopen", function( event, ui ) {
 	  console.log('load data');
-  }
-});
+	  //get the saved games
+	 // getSavedGames();
+	  //reload the panel
+});*/
 
