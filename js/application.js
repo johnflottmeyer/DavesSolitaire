@@ -60,7 +60,7 @@ function initAds() {
     admob.setOptions({
       publisherId:      admobid.banner,
       interstitialAdId: admobid.interstitial,
-      //overlap: true,
+      overlap: true,
       //bannerAtTop: true,
       //isTesting: true, //whoops hopefully I am not banned for running without this. 
       autoShowInterstitial: false,
@@ -322,12 +322,15 @@ function resetVariables(){
 	$('.suit4 span').html("&nbsp;");
 	window.myObDeck = [];
 }
-function messagefadeOut(message,time,type){ //feedback a message to the interface
-	$(".message").removeClass("message-alert").removeClass("message-success");
+function messagefadeOut(id,message,time,type){ //feedback a message to the interface
+	console.log("message called");
+	
+	$(id).removeClass("message-alert").removeClass("message-success");
 	if(time === undefined){ time = 2000;}
-	if(time != undefined){$(".message").addClass("message-"+type);}
-	$(".message").html("").fadeIn();
-	$(".message").html(message).fadeOut(time);
+	if(time != undefined){$(id).addClass("message-"+type);}
+	//$('#mypanel').trigger('updatelayout');
+	$(id).html("").fadeIn();
+	$(id).html(message).fadeOut(time);
 }
 function card(value,name,suit){
 	this.value = value;//original array 
@@ -461,7 +464,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	if(suitOne === suit){//lets compare it to the start cards suit to see if it can go in the row.
 			line0.push({"value":position,"name":value,"suit":suit});
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-			messagefadeOut(value + suit + " can go on row 1",1000,"normal");//temp item
+			messagefadeOut(".message",value + suit + " can go on row 1",1000,"normal");//temp item
 	}else if(value === startCard.name){ //let's see if it is a start card so that it can open up a new deck
 		if(line1.length === 0){//row 2 start card
 			line1.push({"value":position,"name":value,"suit":suit});
@@ -470,7 +473,7 @@ function checkCanPlace(value,suit,title,deck,order){
 			$(".suit2 span").html("<div class='"+suit+" starters'><span>"+value+"</span><i class="+getStartIcon+"></i></div>");
 			//lets hide the card first
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-			messagefadeOut(value + suit + " can start row 2",1000,"normal");//temp item
+			messagefadeOut(".message",value + suit + " can start row 2",1000,"normal");//temp item
 		}else if(line2.length === 0){//row 3 start card
 			line2.push({"value":position,"name":value,"suit":suit});
 			suitThree = suit;
@@ -478,7 +481,7 @@ function checkCanPlace(value,suit,title,deck,order){
 			$(".suit3 span").html("<div class='"+suit+" starters'><span>"+value+"</span><i class="+getStartIcon+"></i></div>");
 			//lets hide the card first
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-			messagefadeOut(value + suit + " can start row 3",1000,"normal");//temp item
+			messagefadeOut(".message",value + suit + " can start row 3",1000,"normal");//temp item
 		}else if(line3.length === 0){//row 4 start card
 			line3.push({"value":position,"name":value,"suit":suit});
 			suitFour = suit;
@@ -486,7 +489,7 @@ function checkCanPlace(value,suit,title,deck,order){
 			$(".suit4 span").html("<div class='"+suit+" starters'><span>"+value+"</span><i class="+getStartIcon+"></i></div>");
 			//lets hide the card first
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-			messagefadeOut(value + suit + " can start row 4",1000,"normal");//temp item
+			messagefadeOut(".message",value + suit + " can start row 4",1000,"normal");//temp item
 		}
 	}else if(suit === suitTwo){//check to see if it can go in line 2 - is it in the first row
 	var inLineTest = getByValue(line0,value);
@@ -494,7 +497,7 @@ function checkCanPlace(value,suit,title,deck,order){
 			//console.log("its there");	//
 			line1.push({"value":position,"name":value,"suit":suit});
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-			messagefadeOut(value + suit + " can go in row 2",1000,"normal");//temp item
+			messagefadeOut(".message",value + suit + " can go in row 2",1000,"normal");//temp item
 		}else{
 		//console.log("not there");
 		
@@ -505,7 +508,7 @@ function checkCanPlace(value,suit,title,deck,order){
 	if(inLineTest){
 	line2.push({"value":position,"name":value,"suit":suit});	
 			animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-			messagefadeOut(value + suit + " can go in row 3",1000,"normal");//temp item
+			messagefadeOut(".message",value + suit + " can go in row 3",1000,"normal");//temp item
 		}else{
 			//console.log("not there");
 	}
@@ -515,7 +518,7 @@ function checkCanPlace(value,suit,title,deck,order){
 		//add to array
 		line3.push({"value":position,"name":value,"suit":suit});
 		animateCss(cardClass,'zoomOutLeft',window[origin],place,origin);
-		messagefadeOut(value + suit + " can start row 4",1000,"normal");//temp item
+		messagefadeOut(".message",value + suit + " can start row 4",1000,"normal");//temp item
 		}else{
 		//console.log("not there");
 		
@@ -552,7 +555,7 @@ $('body').on('click', 'div.card', function() {
     	console.log(cardarray[0]);
     	checkCanPlace(cardarray[0],cardarray[1],$(this).attr("title"),cardarray[2],cardarray[3]);
 	}else{
-		messagefadeOut("Sorry, that card is locked. Please try a different one.",3000,"alert");
+		messagefadeOut(".message","Sorry, that card is locked. Please try a different one.",3000,"alert");
 	}
 });
 

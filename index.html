@@ -17,9 +17,8 @@
   <body onresize="app.onResize()">
   <!--START PAGE-->
    <div class="container app"  id="fullpage">
-	    <!--<div data-role="page" id="startgame">
+	    <div data-role="page" id="startgame">
 		  		   <div data-role="header"><h1>Dave's Solitaire</h1>
-		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
 		   </div>
 		<div role="main" class="ui-content">
 			<div class="message"></div>
@@ -28,7 +27,7 @@
 		
 			</div>
 	  
-	   </div>-->
+	   </div>
 	   <!--END START PAGE-->
 	   <!--GAME BOARD-->
 	   <div data-role="page" id="gameboard">
@@ -69,12 +68,14 @@
 			<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate">
 			   <!--toggle these two options-->
 		   <a href="#my-header" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini" data-rel="close"><i class="icon-circledelete "></i> Close panel</a>
+		   <div class="menumessage">message</div>
 		   <a href="#" class="deal ui-btn">Start Game</a>
 		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
 		   <a href="#" class="save ui-btn">Save</a>
 		   <a href="#" class="load ui-btn">Load</a>
 		   <div class="saved-games">
-			   Click Load to load saved Games.
+			   <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" class="loadlist">
+			   </ul>
 		   </div>
 		   
     <!-- panel content goes here -->
@@ -82,17 +83,16 @@
 		</div>
 	   <!--END GAMB BOAR-->
 	   <!--WINNER-->
-	   <!--<div data-role="page" id="winner">
+	   <div data-role="page" id="winner">
 		   
 
 		   <div data-role="header"><h1>Dave's Solitaire</h1>
-		   <a href="#mypanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini">Menu</a>
 		   </div>
 	<div role="main" class="ui-content">
 		<h2 class="winner">WINNER WINNER CHICKEN DINNER!</h2>
 		<a href="#gameboard" class="reset ui-btn ui-state-disabled">Play Again?</a>
 		</div>
-	   </div>-->
+	   </div>
 	   <!--END WINNER-->
 	   
 	   
