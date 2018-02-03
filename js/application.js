@@ -167,10 +167,10 @@ var line2 = [];
 var line3 = [];
 
 /*pick from here*/
-var bottomdeck1 = [];
-var bottomdeck2 = [];
-var bottomdeck3 = [];
-var bottomdeck4 = [];
+var bottomdeck0 = []; //1
+var bottomdeck1 = []; //2
+var bottomdeck2 = []; //3
+var bottomdeck3 = []; //4
 var flipDeck = []; //bottom deal deck
 
 /*identifier suits*/
@@ -291,6 +291,9 @@ function animateCss(element,animation,windoworigin,cardplace,cardorigin){//, cal
 /*******************************************/
 function resetVariables(){
 	
+	$(".deal").removeClass('ui-state-disabled');
+	$(".reset").addClass('ui-state-disabled');
+	$(".save").addClass('ui-state-disabled');
 	//variables
 	suitOne = "";
 	suitTwo = "";
@@ -307,10 +310,10 @@ function resetVariables(){
 	line2 = [];
 	line3 = [];
 	//html interface
-	$(".bottomgroup1").html("");
-	$(".bottomgroup2").html("");
-	$(".bottomgroup3").html("");
-	$(".bottomgroup4").html("");
+	$(".bottomgroup1").html("&nbsp;");
+	$(".bottomgroup2").html("&nbsp;");
+	$(".bottomgroup3").html("&nbsp;");
+	$(".bottomgroup4").html("&nbsp;");
 	$(".suit1 .deckcards").html("");
 	$(".suit2 .deckcards").html("");
 	$(".suit3 .deckcards").html("");
@@ -337,6 +340,49 @@ function card(value,name,suit){
 	this.name = name;//face 
 	this.suit = suit;//suit
 }
+/*IF LOADED THIS NEEDS TO BE DIFFERENT*/
+function restoreGame(x){
+	console.log(x);
+	//saveData = 
+	//[[suitOne,suitTwo,suitThree,suitFour],
+	//startCard,
+	//flipAmount,
+	//[bottomdeck1,bottomdeck2,bottomdeck3,bottomdeck4],
+	//[line0,line1,line2,line3]];
+	var loadData = x;
+	//restore the decks that are set. 
+	suitOne = x[0][0];
+	suitTwo = x[0][1];
+	suitThree = x[0][2];
+	suitFour = x[0][3];
+	//display the startcard
+	startCard = x[1]; 
+	var getStartIcon = getSuitIcon(startCard.suit);
+  	$(".suit1 span").html("<div class='"+startCard.suit+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon+"></i></div>");
+  	if(suitTwo != ""){
+		var getStartIcon2 = getSuitIcon(suitTwo);
+		$(".suit2 span").html("<div class='"+suitTwo+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon2+"></i></div>");
+	}
+	//flipamount
+	flipAmount = x[2];
+	//set up bottomdeck arrays
+	//console.log("bottomdeck1= "+x[3][0]);
+	bottomdeck0 = x[3][0];
+	bottomdeck1 = x[3][1];
+	bottomdeck2 = x[3][2];
+	bottomdeck3 = x[3][3];
+	line0 = x[4][0];
+	line1 = x[4][1];
+	line2 = x[4][2];
+	line3 = x[4][3];
+	
+  	updateDeck();
+  	//mark buttons
+  	$(".deal").addClass('ui-state-disabled');
+	$(".reset").removeClass('ui-state-disabled');
+	$(".save").removeClass('ui-state-disabled');
+	console.log("called: "+JSON.stringify(startCard));
+}
 function createDeck(){
 	var suits = new Array("H","D","C","S");//suits
 	var startDeck = new Array("A","2","3","4","5","6","7","8","9","10","J","Q","K");//all possible cards
@@ -354,6 +400,7 @@ function createDeck(){
 		myObDeck[i] = t;
   	}
   	startCard = myObDeck[0];//start building pick out first card
+  	console.log("startCard: "+JSON.stringify(startCard));
   	line0.push(startCard);
   	suitOne = startCard.suit;
   	removeByIndex(myObDeck,0);//now remove the first card from the array
@@ -383,6 +430,7 @@ function displayBottomDeck(){
 	for(z=0;z<4;z++){
 		var inserthtml = "";
 		var inactive = "";
+		//console.log("bottomdeck"+z+" : "+JSON.stringify(window['bottomdeck'+z]));
 		for(a=0;a<window['bottomdeck'+z].length;a++){
 			if(a <= (window['bottomdeck'+z].length)-2){inactive = "inactive";}else{inactive = "";}
 			var suit = window['bottomdeck'+z][a].suit;
@@ -571,20 +619,21 @@ $(".deal").click(function(){
 	/*Interface changes*/
 	$(".deal").addClass('ui-state-disabled');
 	$(".reset").removeClass('ui-state-disabled');
+	$(".save").removeClass('ui-state-disabled');
 	
 });
 
 $(".reset").click(function(){
 	resetVariables();
 	/*Interface changes*/
-	$(".deal").removeClass('ui-state-disabled');
-	$(".reset").addClass('ui-state-disabled');
+	//$(".deal").removeClass('ui-state-disabled');
+	//$(".reset").addClass('ui-state-disabled');
 	//close panel
 	$("#mypanel").panel("close");
 	//load start popup
 	//$("#positionSelector").popup("open");
 	
-   $("#positionSelector").popup('open', {positionTo: 'window'});
+   //$("#positionSelector").popup('open', {positionTo: 'window'});
 	
 });
 /*$( "#mypanel" ).on( "panelbeforeopen", function( event, ui ) {
