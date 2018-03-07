@@ -334,6 +334,7 @@ function messagefadeOut(id,message,time,type){ //feedback a message to the inter
 	//$('#mypanel').trigger('updatelayout');
 	$(id).html("").fadeIn();
 	$(id).html(message).fadeOut(time);
+	//$(id).refresh();
 }
 function card(value,name,suit){
 	this.value = value;//original array 
@@ -362,6 +363,14 @@ function restoreGame(x){
   	if(suitTwo != ""){
 		var getStartIcon2 = getSuitIcon(suitTwo);
 		$(".suit2 span").html("<div class='"+suitTwo+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon2+"></i></div>");
+	}
+	if(suitThree != ""){
+		var getStartIcon3 = getSuitIcon(suitThree);
+		$(".suit2 span").html("<div class='"+suitThree+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon3+"></i></div>");
+	}
+	if(suitFour != ""){
+		var getStartIcon4 = getSuitIcon(suitFour);
+		$(".suit2 span").html("<div class='"+suitFour+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon4+"></i></div>");
 	}
 	//flipamount
 	flipAmount = x[2];
@@ -419,7 +428,7 @@ function createDeck(){
 	}
 	flipDeck = myObDeck;
   	displayBottomDeck();
-  	//$("#positionSelector").popup("close");
+  	$("#mypanel").panel("close");
 }
 function updateDeck(){
 	displayBottomDeck();
@@ -475,7 +484,7 @@ function displayTopDeck(){
 	}
 }
 function dealCards(){
-	
+	alert("huh?");
 }
 function flipThemCards(arr){
 	var arrStart = 0;
@@ -615,25 +624,25 @@ $(".flipem").click(function(){
 $(".deal").click(function(){
 	var shuffledDeck = [];
 	shuffledDeck = createDeck();
-	dealCards(shuffledDeck);
+	//dealCards(shuffledDeck);
 	/*Interface changes*/
 	$(".deal").addClass('ui-state-disabled');
 	$(".reset").removeClass('ui-state-disabled');
 	$(".save").removeClass('ui-state-disabled');
-	
+	//close panel
 });
 
 $(".reset").click(function(){
 	resetVariables();
+	//set up a new deck
+	var shuffledDeck = [];
+	shuffledDeck = createDeck();
 	/*Interface changes*/
+	$(".deal").addClass('ui-state-disabled');
+	$(".reset").removeClass('ui-state-disabled');
+	$(".save").removeClass('ui-state-disabled');
 	//$(".deal").removeClass('ui-state-disabled');
 	//$(".reset").addClass('ui-state-disabled');
-	//close panel
-	$("#mypanel").panel("close");
-	//load start popup
-	//$("#positionSelector").popup("open");
-	
-   //$("#positionSelector").popup('open', {positionTo: 'window'});
 	
 });
 /*$( "#mypanel" ).on( "panelbeforeopen", function( event, ui ) {

@@ -7,8 +7,9 @@
     <meta name="description" content="A different kind of solitaire">
     <meta name="author" content="John Flottmeyer">
 
-    <link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet">
-    <link href="css/jquery.mobile.custom.theme.min.css" rel="stylesheet">
+    <!--<link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet">
+    <link href="css/jquery.mobile.custom.theme.min.css" rel="stylesheet">-->
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet">
     <link href="css/whhg.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
@@ -65,16 +66,17 @@
 			</div>
 		
 			</div>
-			<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate">
+			<div data-role="panel" id="mypanel" data-position="left" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-panel-closed ui-body-a ui-panel-animate" data-theme="b">
 			   <!--toggle these two options-->
-		   <a href="#my-header" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-mini" data-rel="close"><i class="icon-circledelete "></i> Close panel</a>
+		   <div data-role="navbar" data-grid="a"><ul><li><a href="#my-header" class="ui-btn ui-icon-delete ui-btn-icon ui-corner-all" data-rel="close">Close panel</a></li><li><a href="#gameboard" class="quit ui-btn ui-mini ui-btn-b">Quit Game</a></li></ul>
+		   </div>
 		   <div class="menumessage">message</div>
-		   <a href="#" class="deal ui-btn">Start Game</a>
-		   <a href="#gameboard" class="reset ui-btn ui-state-disabled">Reset</a>
-		   <a href="#" class="save ui-btn ui-state-disabled">New Save</a>
-		   <a href="#" class="load ui-btn">Load Save</a>
+		   <div data-role="navbar" data-grid="c"><ul><li><a href="#" class="deal ui-btn ui-mini ui-btn-b" data-icon="check">Start</a></li><li><a href="#gameboard" class="reset ui-btn ui-mini ui-state-disabled ui-btn-b" data-icon="refresh">Redo</a></li><li><a href="#" class="save ui-btn ui-mini ui-state-disabled ui-btn-b" data-icon="gear">Save</a></li><li><a href="#" class="load ui-btn ui-mini ui-btn-b" data-icon="action">Load</a></li></ul>
+		   </div><!--<div data-role="controlgroup" data-type="vertical" data-mini="true">--><!--</div>-->
 		   <div class="saved-games">
+			   <h3>Saved Games</h3>
 			   <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true" class="loadlist">
+				   <li>None Loaded - load games to see saved games</li>
 			   </ul>
 		   </div>
 		   
