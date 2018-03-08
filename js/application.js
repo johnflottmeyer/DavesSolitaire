@@ -652,6 +652,18 @@ $(".reset").click(function(){
 	//$(".reset").addClass('ui-state-disabled');
 	
 });
+$( document ).on( "pageinit", function() {
+//$('body').on('click', '.quit', function() {
+	$(".quit").click(function(){
+		resetVariables();
+		//set up a new deck
+		//go to the home page
+		//$.mobile.pageContainer.pagecontainer("change", "#startgame", {  transition: 'flow',
+	      //  reload: true });
+	      
+		$.mobile.changePage('#startgame', {transition:"flip"});
+	});
+});
 /*$( "#mypanel" ).on( "panelbeforeopen", function( event, ui ) {
 	  console.log('load data');
 	  //get the saved games
