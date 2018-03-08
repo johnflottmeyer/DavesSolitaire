@@ -170,7 +170,7 @@
 	display:none;
 }
 .headerbutton{
-	width:10%;
+	width:20%;
 	float:none;
 	display:inline-block;
 	position:relative;
@@ -193,7 +193,7 @@
    display:inline-block !important;
    border-radius:5px;
    float:none;
-   width:85%;
+   width:75%;
    padding:8px 20px !important;
    box-sizing: border-box
 }
