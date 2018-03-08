@@ -143,13 +143,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 /*Fastclick*/
 $(function() {
 	FastClick.attach(document.body);
+	//load panel
+	
 }); 
 
 /*********************************************
 ================ APP START 
 *********************************************/
 $(document).on("pagecreate","#gameboard", function(){ 
-    
+    //$( "body>[data-role='panel']" ).panel();
+    $("[data-role=panel]").enhanceWithin().panel();
+	console.log("panel called");
 });
 
 
@@ -331,7 +335,6 @@ function messagefadeOut(id,message,time,type){ //feedback a message to the inter
 	$(id).removeClass("message-alert").removeClass("message-success");
 	if(time === undefined){ time = 2000;}
 	if(time != undefined){$(id).addClass("message-"+type);}
-	//$('#mypanel').trigger('updatelayout');
 	$(id).html("").fadeIn();
 	$(id).html(message).fadeOut(time);
 	//$(id).refresh();
@@ -428,7 +431,11 @@ function createDeck(){
 	}
 	flipDeck = myObDeck;
   	displayBottomDeck();
-  	$("#mypanel").panel("close");
+  	try{
+                $("#mypanel").panel("close");
+                
+    }catch(err){}
+  	
 }
 function updateDeck(){
 	displayBottomDeck();
