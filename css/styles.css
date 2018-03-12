@@ -199,10 +199,13 @@
    box-sizing: border-box
 }
 .xtra-padding{
-	padding:40px !important;
+	padding:20px !important;
 	background:#8f9f3a !important;
 	text-align:center;
 	text-shadow:none;
 }
-
+.card-logo{
+	width:250px;
+	height:auto;
+}
 /*320 4cards 13 320/17 = 18.82  * 3 margins 5px each 305/17 = 17.94*/ 
