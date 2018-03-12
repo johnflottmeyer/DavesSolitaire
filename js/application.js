@@ -369,11 +369,11 @@ function restoreGame(x){
 	}
 	if(suitThree != ""){
 		var getStartIcon3 = getSuitIcon(suitThree);
-		$(".suit2 span").html("<div class='"+suitThree+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon3+"></i></div>");
+		$(".suit3 span").html("<div class='"+suitThree+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon3+"></i></div>");
 	}
 	if(suitFour != ""){
 		var getStartIcon4 = getSuitIcon(suitFour);
-		$(".suit2 span").html("<div class='"+suitFour+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon4+"></i></div>");
+		$(".suit4 span").html("<div class='"+suitFour+" starters'><span>"+startCard.name+"</span><i class="+getStartIcon4+"></i></div>");
 	}
 	//flipamount
 	flipAmount = x[2];
